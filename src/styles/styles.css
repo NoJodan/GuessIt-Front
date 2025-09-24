@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.panel{
+    width: 100%;
+    height: 70px;
+    background-color: #ff5733;
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    
+}
+#ingresar{
+    height: 20px;
+    display: inline-block; /* Para que se comporte como botón */
+    background-color: #033c79d4; /* Fondo naranja */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Relleno interno */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    transition: 0.3s; /* Animación suave */
+    margin-right: 10px;
+}
+#registrarse{
+    height: 20px;
+    display: inline-block; /* Para que se comporte como botón */
+    background-color: #033c79d4; /* Fondo naranja */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Relleno interno */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    transition: 0.3s; /* Animación suave */
+    margin-right: 20px;
+}
+
+.logo{
+    text-align: center;
+    line-height: 100px;
+}
+
+
+.menu{
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    color: #000000; 
+    letter-spacing: 2px;
+}
+
+#btn-categoria{
+    display: inline-block; /* Para que se comporte como botón */
+    background-color: #ff5733; /* Fondo naranja */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Relleno interno */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    transition: 0.3s; /* Animación suave */
+}
+#btn-jugar{
+    display: inline-block; /* Para que se comporte como botón */
+    background-color: #ff5733; /* Fondo naranja */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Relleno interno */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    transition: 0.3s; /* Animación suave */
+}
+/*Animaciones al pasar cursor */
+#ingresar:hover{
+    transform: scale(1.1);
+}
+#registrarse:hover{
+    transform: scale(1.1);
+}
+#btn-categoria:hover{
+    transform: scale(1.1);
+}
+#btn-jugar:hover{
+    transform: scale(1.1);
+}
