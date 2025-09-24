@@ -4,8 +4,12 @@ function InicioPage() {
   return (
     <div>
       <header className="panel">
+        <Link to="/Login">
         <h2 id="ingresar">Ingresar</h2>
+        </Link>
+        <Link to="/SignUp">
         <h2 id="registrarse">Registrarse</h2>
+        </Link>
       </header>
       
       <header className="logo">
