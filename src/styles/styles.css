@@ -25,7 +25,7 @@ body{
 #registrarse{
     height: 20px;
     display: inline-block; /* Para que se comporte como botón */
-    background-color: #033c79d4; /* Fondo naranja */
+    background-color: #033c79d4; 
     color: white; /* Texto blanco */
     padding: 10px 20px; /* Relleno interno */
     border-radius: 8px; /* Bordes redondeados */

@@ -4,9 +4,13 @@ import '../styles/signup.css'; // CSS específico de SignUp
 function SignUp() {
   return (
     <div className="signup-page">
+      <header className="panel-login">
+        <Link to="/InicioPage">
+          <img className="MiniLogo" src="/MiniLogo.png" alt="Mini logo Guess It!!" width="500px" height="auto"/>
+        </Link>
+      </header>
       <div className="signup-card">
         <h2 className="signup-title">Registrarse</h2>
-
         <form className="signup-form">
           <input type="text" placeholder="Nombre completo" required />
           <input type="email" placeholder="Correo electrónico" required />

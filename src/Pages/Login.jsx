@@ -4,6 +4,11 @@ import '../styles/login.css';
 function Login() {
   return (
     <div className="login-page">
+      <header className="panel-login">
+        <Link to="/InicioPage">
+          <img className="MiniLogo" src="/MiniLogo.png" alt="Mini logo Guess It!!" width="500px" height="auto"/>
+        </Link> 
+      </header>
       <div className="login-card">
         <h2 className="login-title">Iniciar Sesión</h2>
 

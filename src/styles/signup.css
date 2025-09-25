@@ -1,11 +1,25 @@
+/* Logo arriba a la izquierda */
+.panel-login {
+  position: absolute;
+  top: 20px;
+  left: 5px;
+}
+.MiniLogo {
+  width: 300px;
+  height: auto;
+}
+/* Fondo con imagen y centrado del formulario */
 .signup-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #033c79, #ff5733);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url("/public/fondologin.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative; /* para que el logo no se mueva */
 }
 
+/* Card centrada */
 .signup-card {
   background: #f4f4f4;
   padding: 40px;
@@ -15,12 +29,18 @@
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   animation: fadeIn 0.8s ease;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+/* Estilos de texto y formulario */
 .signup-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 32px;
-  color: #033c79;
+  color: #01244bfd;
   margin-bottom: 25px;
 }
 
