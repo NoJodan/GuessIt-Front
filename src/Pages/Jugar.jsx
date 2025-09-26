@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import juegosConfig from "../config/juegos.json";
+import juegosConfig from "../modulo json/juegos.json";
 import '../styles/jugar.css'
 
 function Jugar() {
@@ -12,6 +12,8 @@ function Jugar() {
   useEffect(() => {
     setJuegos(juegosConfig);
   }, []);
+
+  
   return (
     <div className="jugar-page">
       <header className="panel-jugar">
