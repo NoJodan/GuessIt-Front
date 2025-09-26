@@ -1,0 +1,85 @@
+.admin-page {
+  padding: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.admin-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-create { background-color: #28a745; color: white; }
+.btn-update { background-color: #ffc107; color: black; }
+.btn-delete { background-color: #dc3545; color: white; }
+
+.modos-lista {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.modo-card {
+  background: #1e1e2f;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modo-card:hover {
+  background: #33334d;
+}
+
+.modo-card.activo {
+  border: 2px solid #00c3ff;
+  background: #292943;
+}
+
+.modo-editor {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.editor-card {
+  background: #eaeafe;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.btn-add {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.Admin-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url("/public/images/fondoModos.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative; /* Para mantener el panel en su lugar */
+}

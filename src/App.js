@@ -4,6 +4,7 @@ import InicioPage from './Pages/InicioPage';
 import Jugar from './Pages/Jugar';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
+import AdminPanel from './Pages/AdminPanel';
 import './styles/login.css';
 import './styles/signup.css';
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/AdminPanel" element={<AdminPanel />} />
         <Route path="/InicioPage" element={<InicioPage />} />
         <Route path="/Jugar" element={<Jugar />} />
         <Route path="/Login" element={<Login />} />
