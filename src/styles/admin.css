@@ -1,85 +1,178 @@
-.admin-page {
-  padding: 20px;
-  color: white;
-  font-family: Arial, sans-serif;
+/* admin.css
+   - Totalmente scoped con prefijo "gi-"
+   - No modifica body ni variables globales
+*/
+
+/* Root admin wrapper (isolated) */
+.gi-admin-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 20px;
+  box-sizing: border-box;
+  background: url("/public/images/fondoAdminModos.jpg");
+  color: #eef2ff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.admin-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* centraliza el contenido y limita ancho */
+.gi-admin-root {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.admin-actions {
+/* TABS estilo carpeta (solo dentro del admin) */
+.gi-tabs {
   display: flex;
   gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
-.admin-actions button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
+.gi-tab {
+  padding: 10px 18px;
+  background: #2f3342;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 3px solid rgba(0,0,0,0.45);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
+  color: #bfc7d9;
+  font-weight: 700;
+  transition: transform 0.12s ease, background 0.12s ease;
 }
 
-.btn-create { background-color: #28a745; color: white; }
-.btn-update { background-color: #ffc107; color: black; }
-.btn-delete { background-color: #dc3545; color: white; }
+.gi-tab:hover { transform: translateY(-2px); background: #3b4153; }
 
-.modos-lista {
+.gi-tab--active {
+  background: linear-gradient(180deg,#4b4f6a,#3b3f56);
+  color: #fff;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.45);
+  border-bottom-color: #ffd166;
+}
+
+/* tab content wrapper */
+.gi-tabcontent {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(3,6,16,0.45);
+}
+
+/* Panel admin header */
+.gi-panel-admin .gi-panel-header {
   display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
-.modo-card {
-  background: #1e1e2f;
-  padding: 15px 20px;
+.gi-title {
+  margin: 0;
+  font-size: 1.45rem;
+  color: #ffd166;
+}
+
+/* global actions */
+.gi-global-actions .gi-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  background: #2bb673;
+  color: #fff;
+}
+.gi-global-actions .gi-btn:hover { background: #24a764; }
+
+/* GRID of groups */
+.gi-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+/* Group card (carpeta) */
+.gi-group {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow: hidden;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.gi-group:hover { transform: translateY(-6px); box-shadow: 0 10px 22px rgba(0,0,0,0.42); }
+
+/* Group header: title + small controls */
+.gi-group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(255,255,255,0.02));
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.gi-group-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.2s;
+  color: #ffefc2;
+  font-weight: 700;
 }
 
-.modo-card:hover {
-  background: #33334d;
-}
+.gi-folder-emoji { font-size: 1.35rem; }
 
-.modo-card.activo {
-  border: 2px solid #00c3ff;
-  background: #292943;
-}
+/* Small control buttons on group header */
+.gi-group-controls { display: flex; gap: 8px; align-items: center; }
 
-.modo-editor {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.editor-card {
-  background: #eaeafe;
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.btn-add {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  border: none;
+.gi-smallbtn {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 6px 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 0.92rem;
+}
+.gi-smallbtn:hover { background: rgba(255,255,255,0.05); }
+.gi-smallbtn--danger { background: rgba(220,53,69,0.12); border-color: rgba(220,53,69,0.18); }
+
+/* Expanded body with items */
+.gi-group-body {
+  padding: 12px 14px 18px 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
 }
 
-.Admin-page {
-  min-height: 100vh;
-  width: 100%;
+.gi-item-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.gi-item {
   display: flex;
-  flex-direction: column;
-  background: url("/public/images/fondoModos.jpg") no-repeat center center fixed;
-  background-size: cover;
-  position: relative; /* Para mantener el panel en su lugar */
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 10px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.02);
 }
+
+.gi-item-controls { display:flex; gap:8px; align-items:center; }
+
+/* messages / empty */
+.gi-empty { color: #9aa4bb; font-style: italic; padding: 12px; }
+
+/* USER panel: keep it scoped */
+.gi-panel-user {
+  /* The Jugar component will render itself; just ensure no global overrides here */
+  padding: 6px;
+}
+
+/* RESPONSIVE tweaks */
+@media (max-width: 860px) {
+  .gi-groups-grid { grid-template-columns: 1fr; }
+  .gi-tabs { gap: 6px; }
+  .gi-tab { padding: 8px 12px; font-size: 0.95rem; }
+}
+
+/* end of admin.css */
