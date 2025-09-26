@@ -5,6 +5,7 @@ import Jugar from './Pages/Jugar';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import AdminPanel from './Pages/AdminPanel';
+import Editor from './Pages/Editor';
 import './styles/login.css';
 import './styles/signup.css';
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/Editor/:modoId" element={<Editor />} />       
         <Route path="/AdminPanel" element={<AdminPanel />} />
         <Route path="/InicioPage" element={<InicioPage />} />
         <Route path="/Jugar" element={<Jugar />} />
