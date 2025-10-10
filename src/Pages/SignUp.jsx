@@ -6,7 +6,7 @@ function SignUp() {
     <div className="signup-page">
       <header className="panel-login">
         <Link to="/InicioPage">
-          <img className="MiniLogo" src="/MiniLogo.png" alt="Mini logo Guess It!!" width="500px" height="auto"/>
+          <img className="MiniLogo" src="/images/MiniLogo.png" alt="Mini logo Guess It!!" width="500px" height="auto"/>
         </Link>
       </header>
       <div className="signup-card">

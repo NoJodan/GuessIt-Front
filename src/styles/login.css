@@ -14,7 +14,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: url("/public/fondologin.jpg") no-repeat center center fixed;
+  background: url("/public/images/fondologin.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative; /* Para mantener el panel en su lugar */
 }

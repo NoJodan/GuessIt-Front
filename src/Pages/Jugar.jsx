@@ -19,7 +19,7 @@ function Jugar() {
       <header className="panel-jugar">
         <img
           className="MiniLogo"
-          src="/MiniLogo.png"
+          src="/images/MiniLogo.png"
           alt="Mini logo Guess It!!"
           width="500px"
           height="auto"

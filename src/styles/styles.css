@@ -1,42 +1,57 @@
+.ContainerInicio {
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-image: url('/public/images/FondoInicioPage.png');
+    background-size: cover;       /* Ajusta la imagen al tamaño de pantalla */
+    background-position: center;  /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     margin: 0;
     padding: 0;
 }
 .panel{
     width: 100%;
-    height: 70px;
-    background-color: #ff5733;
+    height: 45px;
+    background-color: #38006d;
     display: flex;
     justify-content:right;
     align-items: center;
     
 }
 #ingresar{
-    height: 20px;
-    display: inline-block; /* Para que se comporte como botón */
-    background-color: #033c79d4; /* Fondo naranja */
-    color: white; /* Texto blanco */
-    padding: 10px 20px; /* Relleno interno */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a "mano" */
-    transition: 0.3s; /* Animación suave */
-    margin-right: 10px;
+    display: flex;                /* 🔹 Permite centrar el texto internamente */
+    justify-content: center;      /* 🔹 Centra horizontalmente */
+    align-items: center;          /* 🔹 Centra verticalmente */
+    height: 15px;
+    background-color: #f86300d4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 10px;   
 }
 #registrarse{
-    height: 20px;
-    display: inline-block; /* Para que se comporte como botón */
-    background-color: #033c79d4; 
-    color: white; /* Texto blanco */
-    padding: 10px 20px; /* Relleno interno */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a "mano" */
-    transition: 0.3s; /* Animación suave */
-    margin-right: 20px;
+    display: flex;                /* 🔹 Permite centrar el texto internamente */
+    justify-content: center;      /* 🔹 Centra horizontalmente */
+    align-items: center;          /* 🔹 Centra verticalmente */
+    height: 15px;
+    background-color: #f86300d4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 10px;
 }
 
 .logo{
     text-align: center;
     line-height: 100px;
+    margin-top: 75px;
 }
 
 
@@ -47,24 +62,18 @@ body{
     color: #000000; 
     letter-spacing: 2px;
 }
-
-#btn-categoria{
-    display: inline-block; /* Para que se comporte como botón */
-    background-color: #ff5733; /* Fondo naranja */
-    color: white; /* Texto blanco */
-    padding: 10px 20px; /* Relleno interno */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a "mano" */
-    transition: 0.3s; /* Animación suave */
-}
-#btn-jugar{
-    display: inline-block; /* Para que se comporte como botón */
-    background-color: #ff5733; /* Fondo naranja */
-    color: white; /* Texto blanco */
-    padding: 10px 20px; /* Relleno interno */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a "mano" */
-    transition: 0.3s; /* Animación suave */
+#btn-jugar {
+    margin-top: -20px;
+    display: inline-block;
+    background-color: #2198cf; /* Color base */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 37px;
+    
 }
 /*Animaciones al pasar cursor */
 #ingresar:hover{
@@ -76,6 +85,11 @@ body{
 #btn-categoria:hover{
     transform: scale(1.1);
 }
-#btn-jugar:hover{
+#btn-jugar:hover {
     transform: scale(1.1);
+    border: 2px solid #ffffff; /* Cambia a blanco al pasar el cursor */
+}
+a {
+    text-decoration: none; /*  Quita la línea azul debajo del texto */
+    color: inherit;        /*  Mantiene el color del texto igual al botón */
 }
