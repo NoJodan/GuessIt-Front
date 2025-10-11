@@ -1,19 +1,28 @@
 import { Link } from "react-router-dom";
+import Sonidos from "../sonidos"; // ✅ ruta correcta al componente
 
 function InicioPage() {
   return (
     <div className="ContainerInicio">
+      <Sonidos /> {/* Activa el sistema de sonidos */}
+
       <header className="panel">
         <Link to="/Login">
-        <h2 id="ingresar">Ingresar</h2>
+          <h2 id="ingresar">Ingresar</h2>
         </Link>
         <Link to="/SignUp">
-        <h2 id="registrarse">Registrarse</h2>
+          <h2 id="registrarse">Registrarse</h2>
         </Link>
       </header>
-      
+
       <header className="logo">
-        <img id="LogoPagina" src="/images/LogoPaginaBlanco.png" alt="Logo de la pagina web" width="500px" height="auto"/>
+        <img
+          id="LogoPagina"
+          src="/images/LogoPaginaBlanco.png"
+          alt="Logo de la pagina web"
+          width="500px"
+          height="auto"
+        />
       </header>
 
       <section>
@@ -24,9 +33,7 @@ function InicioPage() {
         </div>
       </section>
 
-      <footer>
-        
-      </footer>
+      <footer></footer>
     </div>
   );
 }
