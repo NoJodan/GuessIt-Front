@@ -1,19 +1,16 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import juegosConfig from "../modulo json/juegos.json";
-import '../styles/jugar.css'
+import "../styles/jugar.css";
 
 function Jugar() {
-  // Inicializa el estado 'juegos' con un array vacío.
-  // Al montar el componente, se carga la configuración desde el JSON usando useEffect, 
-  // recordar se implemento el json para la configuracion de los juegos
-  // y se actualiza el estado 'juegos' con los datos importados.
-  // Esto permite que el componente tenga acceso a la lista de juegos para renderizarlos dinámicamente.
   const [juegos, setJuegos] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     setJuegos(juegosConfig);
   }, []);
 
-  
   return (
     <div className="jugar-page">
       <header className="panel-jugar">
@@ -34,16 +31,14 @@ function Jugar() {
               key={juego.id}
               type="button"
               className="btn-jugar"
-              onClick={() => alert(`Entrar a ${juego.nombre}`)}
+              onClick={() => navigate(juego.ruta)}
             >
               {juego.nombre}
             </button>
           ))}
         </form>
 
-        <p className="jugar-footer">
-          ¡Elige un juego y diviértete!
-        </p>
+        <p className="jugar-footer">¡Elige un juego y diviértete!</p>
       </div>
     </div>
   );

@@ -1,7 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Sonidos() {
+  const [permitirSonido, setPermitirSonido] = useState(false);
+
   useEffect(() => {
+    const habilitarSonido = () => {
+      setPermitirSonido(true);
+      document.removeEventListener("click", habilitarSonido);
+      document.removeEventListener("mousemove", habilitarSonido);
+    };
+
+    // Espera la primera interacción del usuario
+    document.addEventListener("click", habilitarSonido);
+    document.addEventListener("mousemove", habilitarSonido);
+
+    return () => {
+      document.removeEventListener("click", habilitarSonido);
+      document.removeEventListener("mousemove", habilitarSonido);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!permitirSonido) return; // ⛔ No activar sonidos aún
+
     const sonidoHover = new Audio("/sounds/click 1.mp3");
     const sonidoClickJugar = new Audio("/sounds/click al jugar.mp3");
 
@@ -30,7 +51,6 @@ function Sonidos() {
       btnJugar.addEventListener("click", reproducirClick);
     }
 
-    // Limpieza de eventos al desmontar el componente
     return () => {
       elementos.forEach((el) => {
         if (el) el.removeEventListener("mouseenter", reproducirHover);
@@ -39,7 +59,7 @@ function Sonidos() {
         btnJugar.removeEventListener("click", reproducirClick);
       }
     };
-  }, []);
+  }, [permitirSonido]);
 
   return null;
 }
