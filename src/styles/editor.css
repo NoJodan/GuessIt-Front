@@ -1,0 +1,75 @@
+.gi-editor {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.gi-editor-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.gi-form {
+  background: #334155;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.gi-form-field {
+  margin-bottom: 1rem;
+}
+
+.gi-form-field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.gi-form-field input,
+.gi-form-field select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.gi-btn-add {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.gi-btn-add:hover {
+  background: #16a34a;
+}
+
+.gi-list-item {
+  background: #475569;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gi-btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.gi-btn-delete:hover {
+  background: #b91c1c;
+}

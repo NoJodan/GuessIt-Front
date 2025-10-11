@@ -1,0 +1,103 @@
+/* Logo arriba a la izquierda */
+.panel-login {
+  position: absolute;
+  top: 20px;
+  left: 5px;
+}
+.MiniLogo {
+  width: 300px;
+  height: auto;
+}
+/* Fondo con imagen y centrado del formulario */
+.signup-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url("/public/images/fondologin.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative; /* para que el logo no se mueva */
+}
+
+/* Card centrada */
+.signup-card {
+  background: #f4f4f4;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.8s ease;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos de texto y formulario */
+.signup-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #01244bfd;
+  margin-bottom: 25px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form input {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.signup-form input:focus {
+  border-color: #ff5733;
+  outline: none;
+  box-shadow: 0 0 8px #ff5733;
+}
+
+.btn-signup {
+  margin-top: 15px;
+  background-color: #ff5733;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+  transform: scale(1.05);
+  background-color: #e64e2c;
+}
+
+.signup-footer {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-link {
+  color: #033c79;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

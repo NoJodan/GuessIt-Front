@@ -1,0 +1,142 @@
+/* ===== Contenedor principal ===== */
+.jugar-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url("/public/images/FondoInicioPage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  text-align: center;
+}
+
+/* ===== Header / Barra superior ===== */
+.panel-jugar {
+  width: 100%;
+  height: 60px;
+  background-color: #38006d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.MiniLogo {
+  max-height: 45px;
+  width: auto;
+}
+
+/* ===== Card central ===== */
+.jugar-card {
+  margin-top: 12rem; /* Ajuste para que quede dentro del marco blanco */
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 4rem 3rem;
+  border-radius: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden; /* evita que contenido desborde */
+}
+
+/* ===== Títulos ===== */
+.jugar-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.8rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+/* ===== Formulario de botones ===== */
+.jugar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px; /* 🔹 Límite de altura del contenedor */
+  overflow-y: auto;  /* 🔹 Agrega barra vertical cuando hay muchos botones */
+  padding-right: 0.5rem; /* espacio para la barra */
+}
+
+/* 🔹 Estilo personalizado para scrollbar (opcional y visualmente elegante) */
+.jugar-form::-webkit-scrollbar {
+  width: 8px;
+}
+
+.jugar-form::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.jugar-form::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== Botones de juego ===== */
+.btn-jugar {
+  background-color: #f86300d4;
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.6rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+}
+
+.btn-jugar:hover {
+  transform: scale(0.8);
+  border: 2px solid #ffffff;
+}
+
+/* ===== Botón volver ===== */
+.btn-volver {
+  background: transparent;
+  color: #ffffffb0;
+  border: 1px solid #ffffffb0;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-volver:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===== Footer ===== */
+.jugar-footer {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+/* ===== Responsividad ===== */
+@media (max-width: 600px) {
+  .jugar-card {
+    padding: 1.8rem 1.2rem;
+    margin-top: 5rem;
+  }
+
+  .jugar-title {
+    font-size: 2rem;
+  }
+
+  .btn-jugar {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+  }
+
+  .jugar-form {
+    max-height: 220px; /* 🔹 En móviles la lista será más compacta */
+  }
+}
