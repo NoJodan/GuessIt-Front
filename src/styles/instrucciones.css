@@ -1,0 +1,108 @@
+/* ===== Contenedor principal ===== */
+.instrucciones-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url("/public/images/FondoInicioPage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  text-align: center;
+}
+
+/* ===== Barra superior ===== */
+.instrucciones-panel {
+  width: 100%;
+  height: 60px;
+  background-color: #38006d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.instrucciones-logo {
+  max-height: 45px;
+  width: auto;
+}
+
+/* ===== Tarjeta central ===== */
+.instrucciones-card {
+  margin-top: 10rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 3rem 2.5rem;
+  border-radius: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+/* ===== Título ===== */
+.instrucciones-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+/* ===== Texto descriptivo ===== */
+.instrucciones-text {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+/* ===== Botón principal ===== */
+.btn-iniciar {
+  background-color: #f86300d4;
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-iniciar:hover {
+  transform: scale(0.9);
+  border: 2px solid #ffffff;
+}
+
+/* ===== Footer ===== */
+.instrucciones-footer {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  opacity: 0.8;
+}
+
+/* ===== Responsividad ===== */
+@media (max-width: 600px) {
+  .instrucciones-card {
+    padding: 2rem 1.2rem;
+    margin-top: 5rem;
+  }
+
+  .instrucciones-title {
+    font-size: 2rem;
+  }
+
+  .instrucciones-text {
+    font-size: 1.1rem;
+  }
+
+  .btn-iniciar {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
