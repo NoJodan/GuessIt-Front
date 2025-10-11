@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import juegosData from "../modulo json/juegos.json"; // ajusta la ruta si es necesario
+import juegosData from "../modulo_json/juegos.json"; // ajusta la ruta si es necesario
 import "../styles/admin.css"; // ajusta la ruta si guardas el CSS en otro lugar
 import Jugar from "../Pages/Jugar"; // ajusta la ruta según tu proyecto
 

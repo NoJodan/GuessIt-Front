@@ -1,0 +1,56 @@
+{
+  "empresa": [
+    {
+      "id": "fundador",
+      "nombre": "Fundador",
+      "opciones": ["Steve Jobs", "Bill Gates", "Elon Musk"],
+      "correcta": "Steve Jobs"
+    },
+    {
+      "id": "pais",
+      "nombre": "País de origen",
+      "opciones": ["EE.UU", "Japón", "Alemania"],
+      "correcta": "EE.UU"
+    },
+    {
+      "id": "industria",
+      "nombre": "Industria",
+      "opciones": ["Tecnología", "Automotriz", "Moda"],
+      "correcta": "Tecnología"
+    }
+  ],
+  "ciudad": [
+    {
+      "id": "pais",
+      "nombre": "País",
+      "opciones": ["España", "México", "Francia"],
+      "correcta": "Francia"
+    },
+    {
+      "id": "monumento",
+      "nombre": "Monumento famoso",
+      "opciones": ["Torre Eiffel", "Coliseo", "Big Ben"],
+      "correcta": "Torre Eiffel"
+    }
+  ],
+  "personaje": [
+    {
+      "id": "profesion",
+      "nombre": "Profesión",
+      "opciones": ["Actor", "Científico", "Político"],
+      "correcta": "Científico"
+    },
+    {
+      "id": "siglo",
+      "nombre": "Siglo de nacimiento",
+      "opciones": ["XIX", "XX", "XXI"],
+      "correcta": "XX"
+    },
+    {
+      "id": "aporte",
+      "nombre": "Aporte principal",
+      "opciones": ["Teoría de la relatividad", "Descubrimiento del fuego", "Invención de la rueda"],
+      "correcta": "Teoría de la relatividad"
+    }
+  ]
+}

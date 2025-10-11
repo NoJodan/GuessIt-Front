@@ -1,0 +1,24 @@
+{
+  "empresa": [
+    {
+      "id": "pais",
+      "nombre": "País",
+      "opciones": ["México", "España", "EEUU"],
+      "correcta": "México"
+    },
+    {
+      "id": "industria",
+      "nombre": "Industria",
+      "opciones": ["Tecnología", "Alimentos", "Moda"],
+      "correcta": "Tecnología"
+    }
+  ],
+  "ciudad": [
+    {
+      "id": "continente",
+      "nombre": "Continente",
+      "opciones": ["Europa", "Asia", "América"],
+      "correcta": "América"
+    }
+  ]
+}

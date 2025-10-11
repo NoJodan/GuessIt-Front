@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 Para navegar a Instrucciones
-import juegosConfig from "../modulo json/juegos.json";
+import juegosConfig from "../modulo_json/juegos.json";
 import "../styles/jugar.css";
 
 function Jugar() {

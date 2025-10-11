@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import juegos from "../modulo json/juegos.json";
+import juegos from "../modulo_json/juegos.json";
 import "../styles/editor.css";
 
 function Editor() {

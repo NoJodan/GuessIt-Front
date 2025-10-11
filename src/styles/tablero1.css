@@ -1,0 +1,155 @@
+/* ------------------------------
+   TABLERO1 CSS COMPLETO
+-------------------------------*/
+
+/* Contenedor principal */
+.tablero-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* empieza desde arriba */
+  min-height: 100vh;
+  padding-top: 120px; /* espacio desde arriba */
+  padding-bottom: 80px; /* espacio debajo */
+  background-image: url("/public/images/FondoInicioPage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Panel del título */
+.panel-tablero {
+  width: 100%;
+  height: 70px;
+  background-color: #38006d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-tablero {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px #000;
+}
+
+/* Zona de pentágonos */
+.zona-pentagonos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px; /* separación entre pentágonos */
+  margin-top: 40px;
+}
+
+/* Bloques de atributos */
+.bloque-atributo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Zigzag ligero con margen para no romper selects */
+.bloque-atributo:nth-child(even) {
+  margin-top: 5px;
+}
+
+.bloque-atributo:nth-child(odd) {
+  margin-top: -5px;
+}
+
+/* Select de opciones */
+.select-atributo {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 2px solid #f86300;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 1; /* asegurar interacción */
+}
+
+.select-atributo:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Pentágono */
+.pentagono {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(145deg, #ff8a00, #f86300);
+  clip-path: polygon(50% 0%, 95% 35%, 78% 90%, 22% 90%, 5% 35%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+}
+
+/* Resultado correcto/incorrecto */
+.bloque-atributo.correcto .pentagono {
+  background: linear-gradient(145deg, #00c853, #00e676);
+  transform: scale(1.05);
+}
+
+.bloque-atributo.incorrecto .pentagono {
+  background: linear-gradient(145deg, #d50000, #ff1744);
+  transform: scale(0.95);
+}
+
+/* Botón de comprobar */
+.btn-comprobar {
+  background-color: #f86300d4;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+  margin-top: 60px; /* separar del último pentágono */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.btn-comprobar:hover {
+  transform: scale(0.9);
+  border: 2px solid #ffffff;
+}
+
+/* Responsividad */
+@media (max-width: 700px) {
+  .zona-pentagonos {
+    gap: 30px;
+  }
+
+  .pentagono {
+    width: 90px;
+    height: 90px;
+    font-size: 0.9rem;
+  }
+
+  .select-atributo {
+    font-size: 0.9rem;
+  }
+
+  .btn-comprobar {
+    padding: 0.8rem 1.8rem;
+    font-size: 1.3rem;
+  }
+}
