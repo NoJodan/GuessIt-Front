@@ -1,0 +1,202 @@
+[
+  {
+    "nombre": "Lionel Messi",
+    "pistas": [
+      "Ganó 7 Balones de Oro",
+      "Máximo goleador de Argentina",
+      "Juega en Inter Miami",
+      "Considerado uno de los mejores de la historia",
+      "Comenzó su carrera en Barcelona"
+    ]
+  },
+  {
+    "nombre": "Cristiano Ronaldo",
+    "pistas": [
+      "Máximo goleador de la Champions League",
+      "Juega en Al Nassr",
+      "Ganó 5 Balones de Oro",
+      "Es portugués",
+      "Jugó en Manchester United y Real Madrid"
+    ]
+  },
+  {
+    "nombre": "Neymar",
+    "pistas": [
+      "Juega en PSG",
+      "Famoso por sus regates",
+      "Es brasileño",
+      "Ha jugado con Messi",
+      "Participó en la Copa América"
+    ]
+  },
+  {
+    "nombre": "Kylian Mbappé",
+    "pistas": [
+      "Juega en PSG",
+      "Es francés",
+      "Velocidad impresionante",
+      "Ganó la Copa del Mundo 2018",
+      "Considerado uno de los jóvenes más talentosos"
+    ]
+  },
+  {
+    "nombre": "Luka Modric",
+    "pistas": [
+      "Juega en Real Madrid",
+      "Es croata",
+      "Ganó el Balón de Oro 2018",
+      "Mediocampista",
+      "Participó en varias Copas del Mundo"
+    ]
+  },
+  {
+    "nombre": "Sergio Ramos",
+    "pistas": [
+      "Defensa central",
+      "Juega en Sevilla FC",
+      "Es español",
+      "Ex Real Madrid",
+      "Ha ganado la Champions varias veces"
+    ]
+  },
+  {
+    "nombre": "Robert Lewandowski",
+    "pistas": [
+      "Goleador polaco",
+      "Juega en Barcelona",
+      "Ex Bayern Múnich",
+      "Es delantero",
+      "Ha ganado el premio al mejor jugador de la Bundesliga"
+    ]
+  },
+  {
+    "nombre": "Kevin De Bruyne",
+    "pistas": [
+      "Mediocampista belga",
+      "Juega en Manchester City",
+      "Asistencias impresionantes",
+      "Ha ganado la Premier League",
+      "Considerado uno de los mejores del mundo"
+    ]
+  },
+  {
+    "nombre": "Mohamed Salah",
+    "pistas": [
+      "Juega en Liverpool",
+      "Es egipcio",
+      "Velocidad y regate",
+      "Goleador de la Premier League",
+      "Apodo: Pharaoh"
+    ]
+  },
+  {
+    "nombre": "Virgil van Dijk",
+    "pistas": [
+      "Defensa central",
+      "Juega en Liverpool",
+      "Es neerlandés",
+      "Fuerza y altura destacada",
+      "Ganó la Champions League"
+    ]
+  },
+  {
+    "nombre": "Erling Haaland",
+    "pistas": [
+      "Delantero noruego",
+      "Juega en Manchester City",
+      "Goleador nato",
+      "Ex Borussia Dortmund",
+      "Jugador joven con gran potencial"
+    ]
+  },
+  {
+    "nombre": "Sadio Mané",
+    "pistas": [
+      "Es senegalés",
+      "Ex Liverpool",
+      "Velocidad y gol",
+      "Actualmente en Al Nassr",
+      "Destacado en la Premier League"
+    ]
+  },
+  {
+    "nombre": "Karim Benzema",
+    "pistas": [
+      "Delantero francés",
+      "Ex Real Madrid",
+      "Ganador del Balón de Oro",
+      "Habilidad en definición",
+      "Lidera el ataque"
+    ]
+  },
+  {
+    "nombre": "Harry Kane",
+    "pistas": [
+      "Delantero inglés",
+      "Juega en Bayern Múnich",
+      "Máximo goleador de la Premier League",
+      "Es capitán de Inglaterra",
+      "Buen lanzador de penales"
+    ]
+  },
+  {
+    "nombre": "Paulo Dybala",
+    "pistas": [
+      "Delantero argentino",
+      "Ex Juventus",
+      "Apodo: La Joya",
+      "Habilidad en tiros libres",
+      "Actualmente en Roma"
+    ]
+  },
+  {
+    "nombre": "Gianluigi Donnarumma",
+    "pistas": [
+      "Portero italiano",
+      "Juega en PSG",
+      "Ganó la Eurocopa 2020",
+      "Gran reflejos y estatura",
+      "Considerado uno de los mejores porteros jóvenes"
+    ]
+  },
+  {
+    "nombre": "Trent Alexander-Arnold",
+    "pistas": [
+      "Lateral derecho inglés",
+      "Juega en Liverpool",
+      "Asistencias precisas",
+      "Destacado en Premier League",
+      "Gran centro y técnica"
+    ]
+  },
+  {
+    "nombre": "Joshua Kimmich",
+    "pistas": [
+      "Mediocampista alemán",
+      "Juega en Bayern Múnich",
+      "Versátil y técnico",
+      "Defensa o mediocampo",
+      "Gran capacidad de pase"
+    ]
+  },
+  {
+    "nombre": "Vinicius Jr.",
+    "pistas": [
+      "Delantero brasileño",
+      "Juega en Real Madrid",
+      "Velocidad y regate",
+      "Joven estrella",
+      "Importante en la Champions"
+    ]
+  },
+  {
+    "nombre": "Marco Reus",
+    "pistas": [
+      "Delantero alemán",
+      "Juega en Borussia Dortmund",
+      "Habilidad en tiros",
+      "Capitán de su equipo",
+      "Jugador experimentado"
+    ]
+  }
+]

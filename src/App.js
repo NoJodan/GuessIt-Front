@@ -9,6 +9,9 @@ import Editor from './Pages/Editor';
 import './styles/login.css';
 import './styles/signup.css';
 
+import Futbolistas from "./Pages/Categorias/Futbolistas";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +24,9 @@ function App() {
         <Route path="/Jugar" element={<Jugar />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
+
+        <Route path="/jugar/futbolistas" element={<Futbolistas />} />
+
       </Routes>
     </BrowserRouter>
   );
