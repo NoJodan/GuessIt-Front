@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Apple",
+    "pais": "Estados Unidos",
+    "industria": "Tecnología",
+    "fundacion": 1976,
+    "datoCurioso": "Conocida por el iPhone y la Mac"
+  },
+  {
+    "nombre": "Microsoft",
+    "pais": "Estados Unidos",
+    "industria": "Tecnología",
+    "fundacion": 1975,
+    "datoCurioso": "Creadores de Windows y Office"
+  },
+  {
+    "nombre": "Amazon",
+    "pais": "Estados Unidos",
+    "industria": "Comercio electrónico",
+    "fundacion": 1994,
+    "datoCurioso": "Comenzó vendiendo libros online"
+  },
+  {
+    "nombre": "Google",
+    "pais": "Estados Unidos",
+    "industria": "Tecnología",
+    "fundacion": 1998,
+    "datoCurioso": "Procesa más de 3.5 mil millones de búsquedas al día"
+  },
+  {
+    "nombre": "Samsung",
+    "pais": "Corea del Sur",
+    "industria": "Electrónica",
+    "fundacion": 1938,
+    "datoCurioso": "Uno de los mayores fabricantes de smartphones del mundo"
+  },
+  {
+    "nombre": "Meta",
+    "pais": "Estados Unidos",
+    "industria": "Redes sociales",
+    "fundacion": 2004,
+    "datoCurioso": "Antes se llamaba Facebook"
+  },
+  {
+    "nombre": "Tesla",
+    "pais": "Estados Unidos",
+    "industria": "Automotriz",
+    "fundacion": 2003,
+    "datoCurioso": "Popularizó los autos eléctricos de lujo"
+  },
+  {
+    "nombre": "Coca-Cola",
+    "pais": "Estados Unidos",
+    "industria": "Bebidas",
+    "fundacion": 1886,
+    "datoCurioso": "Su fórmula original es secreta y muy famosa"
+  },
+  {
+    "nombre": "Nike",
+    "pais": "Estados Unidos",
+    "industria": "Ropa y calzado deportivo",
+    "fundacion": 1964,
+    "datoCurioso": "Su logo 'Swoosh' es uno de los más reconocidos del mundo"
+  },
+  {
+    "nombre": "Toyota",
+    "pais": "Japón",
+    "industria": "Automotriz",
+    "fundacion": 1937,
+    "datoCurioso": "Pionera en la producción en cadena de autos"
+  },
+  {
+    "nombre": "Intel",
+    "pais": "Estados Unidos",
+    "industria": "Tecnología",
+    "fundacion": 1968,
+    "datoCurioso": "Fabricante líder de microprocesadores"
+  },
+  {
+    "nombre": "Sony",
+    "pais": "Japón",
+    "industria": "Electrónica",
+    "fundacion": 1946,
+    "datoCurioso": "Conocida por sus consolas PlayStation"
+  },
+  {
+    "nombre": "Adidas",
+    "pais": "Alemania",
+    "industria": "Ropa y calzado deportivo",
+    "fundacion": 1949,
+    "datoCurioso": "Su logo de las tres rayas es mundialmente famoso"
+  },
+  {
+    "nombre": "Pepsi",
+    "pais": "Estados Unidos",
+    "industria": "Bebidas",
+    "fundacion": 1893,
+    "datoCurioso": "Rival histórico de Coca-Cola"
+  },
+  {
+    "nombre": "Disney",
+    "pais": "Estados Unidos",
+    "industria": "Entretenimiento",
+    "fundacion": 1923,
+    "datoCurioso": "Creadora de Mickey Mouse y parques temáticos"
+  },
+  {
+    "nombre": "IBM",
+    "pais": "Estados Unidos",
+    "industria": "Tecnología",
+    "fundacion": 1911,
+    "datoCurioso": "Conocida por sus computadoras y software corporativo"
+  },
+  {
+    "nombre": "McDonald's",
+    "pais": "Estados Unidos",
+    "industria": "Comida rápida",
+    "fundacion": 1940,
+    "datoCurioso": "Su hamburguesa Big Mac es famosa mundialmente"
+  },
+  {
+    "nombre": "Honda",
+    "pais": "Japón",
+    "industria": "Automotriz y motocicletas",
+    "fundacion": 1948,
+    "datoCurioso": "Popular por sus autos y motocicletas confiables"
+  },
+  {
+    "nombre": "Netflix",
+    "pais": "Estados Unidos",
+    "industria": "Entretenimiento",
+    "fundacion": 1997,
+    "datoCurioso": "Comenzó como alquiler de DVD por correo"
+  },
+  {
+    "nombre": "Starbucks",
+    "pais": "Estados Unidos",
+    "industria": "Cafeterías",
+    "fundacion": 1971,
+    "datoCurioso": "Conocida por popularizar el café estilo americano"
+  }
+]
