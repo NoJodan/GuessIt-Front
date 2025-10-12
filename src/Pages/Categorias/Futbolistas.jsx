@@ -91,96 +91,143 @@ function Futbolistas() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h1>Adivina el Futbolista</h1>
-      {!juegoTerminado && <p>Escribe cualquier nombre para iniciar</p>}
+    <div className="futbolpage">
+      <div style={{ textAlign: "center", marginTop: "40px" }}>
+        <h1>Adivina el Futbolista</h1>
+        {!juegoTerminado && <p>Escribe cualquier nombre para iniciar</p>}
 
-      <form onSubmit={handleIntento} style={{ position: "relative" }}>
-        <input
-          type="text"
-          value={inputUsuario}
-          onChange={handleInputChange}
-          placeholder="Escribe un jugador"
-          disabled={juegoTerminado}
-        />
-        <button type="submit" disabled={juegoTerminado}>
-          Verificar
-        </button>
+        <form onSubmit={handleIntento} style={{ position: "relative" }}>
+          <input
+            type="text"
+            value={inputUsuario}
+            onChange={handleInputChange}
+            placeholder="Escribe un jugador"
+            disabled={juegoTerminado}
+          />
+          <button type="submit" disabled={juegoTerminado}>
+            Verificar
+          </button>
 
-        {/* Autocompletar */}
-        {sugerencias.length > 0 && !juegoTerminado && (
-          <ul
-            style={{
-              position: "absolute",
-              background: "white",
-              border: "1px solid #ccc",
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              width: "200px",
-              maxHeight: "150px",
-              overflowY: "auto",
-              zIndex: 10,
-            }}
-          >
-            {sugerencias.map((nombre, i) => (
+          {/* Autocompletar */}
+          {sugerencias.length > 0 && !juegoTerminado && (
+            <ul
+              style={{
+                position: "absolute",
+                background: "white",
+                border: "1px solid #ccc",
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                width: "200px",
+                maxHeight: "150px",
+                overflowY: "auto",
+                zIndex: 10,
+              }}
+            >
+              {sugerencias.map((nombre, i) => (
+                <li
+                  key={i}
+                  onClick={() => handleSugerenciaClick(nombre)}
+                  style={{
+                    padding: "5px",
+                    cursor: "pointer",
+                    borderBottom: "1px solid #eee",
+                  }}
+                >
+                  {nombre}
+                </li>
+              ))}
+            </ul>
+          )}
+        </form>
+
+        {mensaje && <p>{mensaje}</p>}
+
+        {jugadorSeleccionado && (
+          <div style={{ marginTop: "20px" }}>
+            <h3>Pistas:</h3>
+            <ul style={{ listStyle: "none", padding: 0 }}>
               <li
-                key={i}
-                onClick={() => handleSugerenciaClick(nombre)}
                 style={{
-                  padding: "5px",
-                  cursor: "pointer",
-                  borderBottom: "1px solid #eee",
+                  color:
+                    resultado.champions === "verde"
+                      ? "green"
+                      : resultado.champions === "rojo"
+                      ? "red"
+                      : "black",
                 }}
               >
-                {nombre}
+                Champions: {jugadorSeleccionado.champions}
               </li>
-            ))}
-          </ul>
+              <li
+                style={{
+                  color:
+                    resultado.equipo === "verde"
+                      ? "green"
+                      : resultado.equipo === "rojo"
+                      ? "red"
+                      : "black",
+                }}
+              >
+                Equipo actual: {jugadorSeleccionado.equipo}
+              </li>
+              <li
+                style={{
+                  color:
+                    resultado.posicion === "verde"
+                      ? "green"
+                      : resultado.posicion === "rojo"
+                      ? "red"
+                      : "black",
+                }}
+              >
+                Posición: {jugadorSeleccionado.posicion}
+              </li>
+              <li
+                style={{
+                  color:
+                    resultado.pais === "verde"
+                      ? "green"
+                      : resultado.pais === "rojo"
+                      ? "red"
+                      : "black",
+                }}
+              >
+                País: {jugadorSeleccionado.pais}
+              </li>
+              <li
+                style={{
+                  color:
+                    resultado.pie === "verde"
+                      ? "green"
+                      : resultado.pie === "rojo"
+                      ? "red"
+                      : "black",
+                }}
+              >
+                Pie hábil: {jugadorSeleccionado.pie}
+              </li>
+            </ul>
+          </div>
         )}
-      </form>
 
-      {mensaje && <p>{mensaje}</p>}
-
-      {jugadorSeleccionado && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>Pistas:</h3>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            <li style={{ color: resultado.champions === "verde" ? "green" : resultado.champions === "rojo" ? "red" : "black" }}>
-              Champions: {jugadorSeleccionado.champions}
-            </li>
-            <li style={{ color: resultado.equipo === "verde" ? "green" : resultado.equipo === "rojo" ? "red" : "black" }}>
-              Equipo actual: {jugadorSeleccionado.equipo}
-            </li>
-            <li style={{ color: resultado.posicion === "verde" ? "green" : resultado.posicion === "rojo" ? "red" : "black" }}>
-              Posición: {jugadorSeleccionado.posicion}
-            </li>
-            <li style={{ color: resultado.pais === "verde" ? "green" : resultado.pais === "rojo" ? "red" : "black" }}>
-              País: {jugadorSeleccionado.pais}
-            </li>
-            <li style={{ color: resultado.pie === "verde" ? "green" : resultado.pie === "rojo" ? "red" : "black" }}>
-              Pie hábil: {jugadorSeleccionado.pie}
-            </li>
-          </ul>
-        </div>
-      )}
-
-      {juegoTerminado && (
-        <button
-          onClick={seleccionarJugadorAleatorio}
-          style={{
-            marginTop: "20px",
-            padding: "10px 20px",
-            cursor: "pointer",
-            background: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-          }}
-        >
-          Volver a intentar
-        </button>
-      )}
+        {juegoTerminado && (
+          <button
+            onClick={seleccionarJugadorAleatorio}
+            style={{
+              marginTop: "20px",
+              padding: "10px 20px",
+              cursor: "pointer",
+              background: "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+            }}
+          >
+            Volver a intentar
+          </button>
+        )}
+      </div>
     </div>
   );
 }
