@@ -2,17 +2,26 @@ import React, { useState, useEffect } from "react";
 import futbolistasData from "../../modulo json/futbolistas.json";
 
 function Futbolistas() {
-  const [jugadorSeleccionado, setJugadorSeleccionado] = useState(null); // jugador aleatorio
-  const [inputUsuario, setInputUsuario] = useState("");                 // input donde escribe
-  const [resultado, setResultado] = useState([]);                       // colores de pistas
-  const [sugerencias, setSugerencias] = useState([]);                   // autocompletar
+  const [jugadorSeleccionado, setJugadorSeleccionado] = useState(null);
+  const [inputUsuario, setInputUsuario] = useState("");
+  const [sugerencias, setSugerencias] = useState([]);
+  const [resultado, setResultado] = useState({});
+  const [mensaje, setMensaje] = useState("");
+  const [juegoTerminado, setJuegoTerminado] = useState(false);
 
-  // Al montar el componente, seleccionar jugador aleatorio
-  useEffect(() => {
+  const seleccionarJugadorAleatorio = () => {
     const aleatorio =
       futbolistasData[Math.floor(Math.random() * futbolistasData.length)];
     setJugadorSeleccionado(aleatorio);
-    setResultado(Array(aleatorio.pistas.length).fill("neutral"));
+    setResultado({});
+    setMensaje("");
+    setJuegoTerminado(false);
+    setInputUsuario("");
+    setSugerencias([]);
+  };
+
+  useEffect(() => {
+    seleccionarJugadorAleatorio();
   }, []);
 
   // Autocompletar
@@ -37,22 +46,43 @@ function Futbolistas() {
     setSugerencias([]);
   };
 
-  // Intento del usuario
+  // Comprobación de intento
   const handleIntento = (e) => {
     e.preventDefault();
-    if (!jugadorSeleccionado) return;
+    if (!jugadorSeleccionado || juegoTerminado) return;
 
-    const nuevoResultado = jugadorSeleccionado.pistas.map((pista) => {
-      return pista.toLowerCase().includes(inputUsuario.toLowerCase())
-        ? "verde"
-        : "rojo";
-    });
+    const intento = futbolistasData.find(
+      (j) => j.nombre.toLowerCase() === inputUsuario.toLowerCase()
+    );
 
-    // Si el usuario adivina correctamente el jugador, todas las pistas en verde
-    if (inputUsuario.toLowerCase() === jugadorSeleccionado.nombre.toLowerCase()) {
-      setResultado(Array(jugadorSeleccionado.pistas.length).fill("verde"));
-      alert(`¡Correcto! El jugador era ${jugadorSeleccionado.nombre}`);
+    if (!intento) {
+      setMensaje("Ese jugador no está en la base de datos 😅");
+      setInputUsuario("");
+      return;
+    }
+
+    const nuevoResultado = {
+      champions:
+        intento.champions === jugadorSeleccionado.champions ? "verde" : "rojo",
+      equipo: intento.equipo === jugadorSeleccionado.equipo ? "verde" : "rojo",
+      posicion:
+        intento.posicion === jugadorSeleccionado.posicion ? "verde" : "rojo",
+      pais: intento.pais === jugadorSeleccionado.pais ? "verde" : "rojo",
+      pie: intento.pie === jugadorSeleccionado.pie ? "verde" : "rojo",
+    };
+
+    if (intento.nombre === jugadorSeleccionado.nombre) {
+      setMensaje(`🎉 ¡Correcto! Era ${jugadorSeleccionado.nombre}`);
+      setJuegoTerminado(true);
+      setResultado({
+        champions: "verde",
+        equipo: "verde",
+        posicion: "verde",
+        pais: "verde",
+        pie: "verde",
+      });
     } else {
+      setMensaje("Sigue intentando...");
       setResultado(nuevoResultado);
     }
 
@@ -61,21 +91,24 @@ function Futbolistas() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div style={{ textAlign: "center", marginTop: "40px" }}>
       <h1>Adivina el Futbolista</h1>
-      <p>Escribe cualquier nombre para empezar a adivinar</p>
+      {!juegoTerminado && <p>Escribe cualquier nombre para iniciar</p>}
 
       <form onSubmit={handleIntento} style={{ position: "relative" }}>
         <input
           type="text"
           value={inputUsuario}
           onChange={handleInputChange}
-          placeholder="Escribe tu intento"
+          placeholder="Escribe un jugador"
+          disabled={juegoTerminado}
         />
-        <button type="submit">Verificar</button>
+        <button type="submit" disabled={juegoTerminado}>
+          Verificar
+        </button>
 
         {/* Autocompletar */}
-        {sugerencias.length > 0 && (
+        {sugerencias.length > 0 && !juegoTerminado && (
           <ul
             style={{
               position: "absolute",
@@ -107,28 +140,46 @@ function Futbolistas() {
         )}
       </form>
 
+      {mensaje && <p>{mensaje}</p>}
+
       {jugadorSeleccionado && (
-        <>
+        <div style={{ marginTop: "20px" }}>
           <h3>Pistas:</h3>
           <ul style={{ listStyle: "none", padding: 0 }}>
-            {jugadorSeleccionado.pistas.map((pista, index) => (
-              <li
-                key={index}
-                style={{
-                  color:
-                    resultado[index] === "verde"
-                      ? "green"
-                      : resultado[index] === "rojo"
-                      ? "red"
-                      : "black",
-                  margin: "5px 0",
-                }}
-              >
-                {pista}
-              </li>
-            ))}
+            <li style={{ color: resultado.champions === "verde" ? "green" : resultado.champions === "rojo" ? "red" : "black" }}>
+              Champions: {jugadorSeleccionado.champions}
+            </li>
+            <li style={{ color: resultado.equipo === "verde" ? "green" : resultado.equipo === "rojo" ? "red" : "black" }}>
+              Equipo actual: {jugadorSeleccionado.equipo}
+            </li>
+            <li style={{ color: resultado.posicion === "verde" ? "green" : resultado.posicion === "rojo" ? "red" : "black" }}>
+              Posición: {jugadorSeleccionado.posicion}
+            </li>
+            <li style={{ color: resultado.pais === "verde" ? "green" : resultado.pais === "rojo" ? "red" : "black" }}>
+              País: {jugadorSeleccionado.pais}
+            </li>
+            <li style={{ color: resultado.pie === "verde" ? "green" : resultado.pie === "rojo" ? "red" : "black" }}>
+              Pie hábil: {jugadorSeleccionado.pie}
+            </li>
           </ul>
-        </>
+        </div>
+      )}
+
+      {juegoTerminado && (
+        <button
+          onClick={seleccionarJugadorAleatorio}
+          style={{
+            marginTop: "20px",
+            padding: "10px 20px",
+            cursor: "pointer",
+            background: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+          }}
+        >
+          Volver a intentar
+        </button>
       )}
     </div>
   );
