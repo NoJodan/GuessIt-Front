@@ -11,6 +11,7 @@ import './styles/signup.css';
 
 import Futbolistas from "./Pages/Categorias/Futbolistas";
 import Empresas from './Pages/Categorias/Empresas';
+import Theme from './Pages/Theme';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
 
         <Route path="/jugar/futbolistas" element={<Futbolistas />} />
         <Route path="/jugar/empresa" element={<Empresas />} />
+        <Route path="/tema/:id" element={<Theme />} />
         
 
       </Routes>

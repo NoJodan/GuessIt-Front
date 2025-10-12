@@ -1,14 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import juegosConfig from "../modulo json/juegos.json";
 import "../styles/jugar.css";
 
 function Jugar() {
   const [juegos, setJuegos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const getAllThemes = async () => {  
+    try {  
+      const token = localStorage.getItem('token');  
+      const response = await fetch('http://127.0.0.1:8080/api/game/themes', {  
+        method: 'GET',  
+        headers: {  
+          'Authorization': `Bearer ${token}`,  
+          'Content-Type': 'application/json'  
+        }  
+      });  
+        
+      const data = await response.json();  
+        
+      if (response.ok) {  
+        return { success: true, themes: data.themes };  
+      } else {  
+        return { success: false, error: data.error || data.message || JSON.stringify(data) };  
+      }  
+    } catch (error) {  
+      return { success: false, error: 'Error de conexión' };  
+    }  
+  };
+
   useEffect(() => {
-    setJuegos(juegosConfig);
+    const load = async () => {
+      setLoading(true);
+      setError(null);
+      const res = await getAllThemes();
+        if (res.success) {
+        // Convertir cada tema a un objeto con ruta usando el id
+        const temasConRuta = res.themes.map((t) => {
+          return { id: t.id, nombre: t.name, ruta: `/tema/${t.id}` };
+        });
+        setJuegos(temasConRuta);
+      } else {
+        setJuegos([]);
+        setError(res.error || 'No se pudieron obtener las temáticas');
+        alert(res.error || 'No se pudieron obtener las temáticas');
+      }
+      setLoading(false);
+    };
+
+    load();
   }, []);
 
   return (
@@ -31,7 +73,11 @@ function Jugar() {
               key={juego.id}
               type="button"
               className="btn-jugar"
-              onClick={() => navigate(juego.ruta)}
+              onClick={() => {
+                // guardar id seleccionado para uso posterior y navegar
+                try { localStorage.setItem('selectedThemeId', String(juego.id)); } catch (e) {}
+                navigate(juego.ruta);
+              }}
             >
               {juego.nombre}
             </button>
