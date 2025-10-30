@@ -1,235 +1,237 @@
-/* admin.css
-   - Totalmente scoped con prefijo "gi-"
-   - No modifica body ni variables globales
-*/
-
-/* Root admin wrapper (isolated) */
+/* ===== Panel de Administración (modo oscuro con estilo tipo Jugar) ===== */
 .gi-admin-page {
-  width: 100%;
   min-height: 100vh;
-  padding: 28px 20px;
+  width: 100%;
+  background: url("/public/images/fondo2.jpg") center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 2rem;
+  font-family: "Bebas Neue", sans-serif;
+  color: #fff;
   box-sizing: border-box;
-  background: url("/public/images/fondoAdminModos.jpg");
-  color: #eef2ff;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* centraliza el contenido y limita ancho */
+/* ===== Contenedor principal ===== */
 .gi-admin-root {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  border-radius: 35px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-/* TABS estilo carpeta (solo dentro del admin) */
+/* ===== Tabs superiores ===== */
 .gi-tabs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 12px;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .gi-tab {
-  padding: 10px 18px;
-  background: #2f3342;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.45);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  font-size: 1.8rem;
+  color: #ccc;
   cursor: pointer;
-  color: #bfc7d9;
-  font-weight: 700;
-  transition:
-    transform 0.12s ease,
-    background 0.12s ease;
+  transition: all 0.3s ease;
+  padding-bottom: 4px;
+  border-bottom: 3px solid transparent;
 }
 
 .gi-tab:hover {
-  transform: translateY(-2px);
-  background: #3b4153;
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .gi-tab--active {
-  background: linear-gradient(180deg, #4b4f6a, #3b3f56);
-  color: #fff;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.45);
-  border-bottom-color: #ffd166;
+  color: #ff7a1a;
+  border-color: #ff7a1a;
+  text-shadow: 0 0 10px rgba(255, 122, 26, 0.6);
 }
 
-/* tab content wrapper */
-.gi-tabcontent {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  padding: 18px;
-  box-shadow: 0 8px 24px rgba(3, 6, 16, 0.45);
-}
-
-/* Panel admin header */
-.gi-panel-admin .gi-panel-header {
+/* ===== Contenido de panel ===== */
+.gi-panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
 .gi-title {
+  font-size: 2.3rem;
   margin: 0;
-  font-size: 1.45rem;
-  color: #ffd166;
 }
 
-/* global actions */
-.gi-global-actions .gi-btn {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: 700;
-  background: #2bb673;
+.gi-btn {
+  background: #f86300d4;
   color: #fff;
-}
-.gi-global-actions .gi-btn:hover {
-  background: #24a764;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-/* GRID of groups */
+.gi-btn:hover {
+  background: #ff7a1a;
+  transform: scale(1.05);
+  border: 2px solid #fff;
+}
+
+/* ===== Tarjetas de grupos ===== */
 .gi-groups-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* Group card (carpeta) */
 .gi-group {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  overflow: hidden;
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.12s ease;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 25px;
+  padding: 1.2rem 1.5rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.gi-group:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.42);
+.gi-group--expanded {
+  background: rgba(255, 122, 26, 0.15);
+  transform: scale(1.02);
 }
 
-/* Group header: title + small controls */
 .gi-group-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 14px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(255, 255, 255, 0.02)
-  );
-  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  cursor: pointer;
 }
 
 .gi-group-title {
   display: flex;
+  align-items: center;
+  font-size: 1.6rem;
   gap: 10px;
-  align-items: center;
-  cursor: pointer;
-  color: #ffefc2;
-  font-weight: 700;
-}
-
-.gi-folder-emoji {
-  font-size: 1.35rem;
-}
-
-/* Small control buttons on group header */
-.gi-group-controls {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.gi-smallbtn {
-  background: rgba(255, 255, 255, 0.03);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  padding: 6px 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.92rem;
-}
-.gi-smallbtn:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-.gi-smallbtn--danger {
-  background: rgba(220, 53, 69, 0.12);
-  border-color: rgba(220, 53, 69, 0.18);
+  transition: color 0.3s;
 }
 
-/* Expanded body with items */
+.gi-group-title:hover {
+  color: #ff7a1a;
+}
+
+/* ===== Botones pequeños ===== */
+.gi-smallbtn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1rem;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+
+.gi-smallbtn:hover {
+  background: #ff7a1a;
+  transform: scale(1.1);
+}
+
+.gi-smallbtn--danger:hover {
+  background: #ff1a1a;
+}
+
+/* ===== Items dentro de grupos ===== */
 .gi-group-body {
-  padding: 12px 14px 18px 14px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.01),
-    rgba(255, 255, 255, 0)
-  );
+  margin-top: 1rem;
+  padding-left: 1rem;
+  animation: fadeIn 0.5s ease;
 }
 
 .gi-item-list {
   list-style: none;
-  margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  margin: 0;
 }
 
 .gi-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 9px 10px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.02);
+  transition: all 0.3s;
 }
 
-.gi-item-controls {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+.gi-item:hover {
+  background: rgba(255, 122, 26, 0.25);
 }
 
-/* messages / empty */
+/* ===== Vacío ===== */
 .gi-empty {
-  color: #9aa4bb;
-  font-style: italic;
-  padding: 12px;
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  padding: 1rem 0;
 }
 
-/* USER panel: keep it scoped */
-.gi-panel-user {
-  /* The Jugar component will render itself; just ensure no global overrides here */
-  padding: 6px;
+/* ===== Animaciones ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* RESPONSIVE tweaks */
-@media (max-width: 860px) {
-  .gi-groups-grid {
-    grid-template-columns: 1fr;
+/* ===== Responsividad ===== */
+@media (max-width: 768px) {
+  .gi-admin-root {
+    padding: 1.5rem;
   }
-  .gi-tabs {
-    gap: 6px;
+
+  .gi-title {
+    font-size: 1.8rem;
   }
+
   .gi-tab {
-    padding: 8px 12px;
-    font-size: 0.95rem;
+    font-size: 1.5rem;
+  }
+
+  .gi-group-title {
+    font-size: 1.4rem;
+  }
+
+  .gi-btn {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
   }
 }
 
-/* end of admin.css */
+@media (max-width: 480px) {
+  .gi-admin-page {
+    padding: 2rem 1rem;
+  }
+
+  .gi-tab {
+    font-size: 1.2rem;
+  }
+
+  .gi-title {
+    font-size: 1.6rem;
+  }
+
+  .gi-group-title {
+    font-size: 1.2rem;
+  }
+}
