@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
+/* === BASE GENERAL === */
 body {
   margin: 0;
   padding: 0;
@@ -12,32 +13,30 @@ body {
   text-align: center;
   overflow-x: hidden;
   transition: opacity 1.5s ease-in-out;
+  min-height: 100vh;
 }
 
-/* === LOGO Y PANEL === */
+/* === PANEL Y LOGO === */
 .panel-jugar {
-  padding-top: 20px;
+  padding-top: 2vh;
 }
 
 .MiniLogo {
+  width: clamp(100px, 18vw, 220px);
   filter: drop-shadow(0 0 30px #e5d9b6);
+  height: auto;
 }
 
 /* === CONTENEDOR PRINCIPAL === */
 .jugar-page {
-  margin-top: 40px;
+  margin-top: clamp(20px, 4vh, 60px);
 }
 
 /* === TÍTULO CON EFECTO DE BRILLO === */
 .jugar-title {
-  font-size: 6rem;
-  margin-bottom: 40px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    white 50%,
-    transparent 100%
-  );
+  font-size: clamp(2rem, 7vw, 6rem);
+  margin-bottom: clamp(20px, 6vh, 50px);
+  background: linear-gradient(to right, transparent 0%, white 50%, transparent 100%);
   background-size: 200% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -52,21 +51,15 @@ body {
   }
 }
 
-/* === ANIMACIÓN SUBIR/BAJAR DEL CONTENEDOR === */
+/* === ANIMACIÓN SUBIR/BAJAR === */
 @keyframes subirBajar {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 #jugar-container {
-  animation: subirBajar 2s ease-in-out infinite;
+  animation: subirBajar 2.5s ease-in-out infinite;
 }
 
 /* === CONTENEDOR DE BOTONES === */
@@ -78,6 +71,7 @@ body {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #8b7b45 #0a0a0a;
+  padding: 0 1rem;
 }
 
 .jugar-container::-webkit-scrollbar {
@@ -92,17 +86,18 @@ body {
 .jugar-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 80%;
+  gap: clamp(10px, 2vh, 20px);
+  width: 90%;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .btn-jugar {
   background: linear-gradient(180deg, #bfa76f 0%, #7d6a3e 100%);
   color: #141414;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.4rem);
   font-weight: bold;
-  padding: 12px;
+  padding: clamp(10px, 2.5vh, 14px);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -110,7 +105,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
+  border-radius: 12px;
+  width: 100%;
 }
 
 .btn-jugar:hover {
@@ -122,12 +118,12 @@ body {
 
 /* === FOOTER === */
 .jugar-footer {
-  margin-top: 70px;
-  font-size: 2rem;
+  margin-top: clamp(40px, 8vh, 80px);
+  font-size: clamp(1.2rem, 3vw, 2rem);
   opacity: 0.8;
 }
 
-/* === FADE IN VISUAL === */
+/* === EFECTO FADE IN === */
 body.fade-in {
   opacity: 1;
 }
@@ -142,22 +138,50 @@ body.fade-in {
 }
 
 /* === RESPONSIVIDAD === */
+
+/* 📱 Móviles medianos y pequeños */
 @media (max-width: 768px) {
   .jugar-title {
-    font-size: 3.5rem;
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
   }
 
   .btn-jugar {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    padding: clamp(10px, 2vh, 12px);
+  }
+
+  .jugar-footer {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
   }
 }
 
+/* 📱 Extra pequeño (teléfonos muy compactos) */
 @media (max-width: 480px) {
   .jugar-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 7vw, 2.8rem);
   }
 
   .btn-jugar {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
+
+  .jugar-container {
+    padding: 0 0.5rem;
+  }
+}
+
+/* 💻 Pantallas grandes */
+@media (min-width: 1400px) {
+  .jugar-title {
+    font-size: 6rem;
+  }
+
+  .btn-jugar {
+    font-size: 1.6rem;
+    padding: 18px;
+  }
+
+  .jugar-footer {
+    font-size: 2.2rem;
   }
 }
