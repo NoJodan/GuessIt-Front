@@ -1,77 +1,59 @@
 /* ===== Página principal ===== */
 .jugar-page {
+  min-height: 100vh;
+  width: 100%;
+  background: url("/public/images/fondo2.jpg") center/cover no-repeat fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding-top: 100px;
-  padding-bottom: 60px;
-  background-image: url("/public/images/Fondo2.png"); /* ✅ ruta corregida */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  justify-content: center;
   font-family: "Bebas Neue", sans-serif;
   color: #fff;
   text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-/* ===== Panel superior con logo ===== */
-.panel-jugar {
-  width: 100%;
-  height: 100px;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+/* ===== Logo ===== */
+.logo {
+  margin-bottom: 2rem;
 }
 
-.MiniLogo {
-  max-height: 50px;
-  width: auto;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+.logo-img {
+  width: 60%;
+  max-width: 400px;
+  height: auto;
 }
 
 /* ===== Tarjeta central ===== */
 .jugar-card {
-  margin-top: 10rem;
   background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(8px);
-  padding: 3rem 2.5rem;
-  border-radius: 50px;
+  padding: 3rem 2rem;
+  border-radius: 40px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   width: 90%;
-  max-width: 900px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.jugar-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  max-width: 600px;
 }
 
 /* ===== Título ===== */
 .jugar-title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  letter-spacing: 2px;
-  color: #ffffff;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* ===== Botones de juego ===== */
+/* ===== Botones ===== */
 .jugar-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .btn-jugar {
   background-color: #f86300d4;
-  color: #ffffff;
+  color: #fff;
   border: none;
   padding: 1rem 2rem;
   font-size: 1.5rem;
@@ -79,28 +61,28 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-jugar:hover {
-  transform: scale(0.95);
-  border: 2px solid #ffffff;
+  transform: scale(1.05);
   background-color: #ff7a1a;
+  border: 2px solid #fff;
 }
 
 /* ===== Footer ===== */
 .jugar-footer {
   font-size: 1.2rem;
-  color: #e0e0e0;
   opacity: 0.8;
-  margin-top: 1rem;
 }
 
 /* ===== Responsividad ===== */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .logo-img {
+    width: 70%;
+  }
+
   .jugar-card {
-    padding: 2rem 1.2rem;
-    margin-top: 2rem;
+    padding: 2rem 1rem;
   }
 
   .jugar-title {
@@ -110,5 +92,19 @@
   .btn-jugar {
     font-size: 1.3rem;
     padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 80%;
+  }
+
+  .jugar-title {
+    font-size: 1.8rem;
+  }
+
+  .btn-jugar {
+    font-size: 1.1rem;
   }
 }

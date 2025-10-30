@@ -32,9 +32,7 @@ function Futbolistas() {
     if (valor.length > 0) {
       const filtrados = futbolistasData
         .map((j) => j.nombre)
-        .filter((nombre) =>
-          nombre.toLowerCase().includes(valor.toLowerCase())
-        );
+        .filter((nombre) => nombre.toLowerCase().includes(valor.toLowerCase()));
       setSugerencias(filtrados);
     } else {
       setSugerencias([]);
@@ -52,7 +50,7 @@ function Futbolistas() {
     if (!jugadorSeleccionado || juegoTerminado) return;
 
     const intento = futbolistasData.find(
-      (j) => j.nombre.toLowerCase() === inputUsuario.toLowerCase()
+      (j) => j.nombre.toLowerCase() === inputUsuario.toLowerCase(),
     );
 
     if (!intento) {
@@ -122,8 +120,7 @@ function Futbolistas() {
                 maxHeight: "150px",
                 overflowY: "auto",
                 zIndex: 10,
-              }}
-            >
+              }}>
               {sugerencias.map((nombre, i) => (
                 <li
                   key={i}
@@ -132,8 +129,7 @@ function Futbolistas() {
                     padding: "5px",
                     cursor: "pointer",
                     borderBottom: "1px solid #eee",
-                  }}
-                >
+                  }}>
                   {nombre}
                 </li>
               ))}
@@ -153,10 +149,9 @@ function Futbolistas() {
                     resultado.champions === "verde"
                       ? "green"
                       : resultado.champions === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Champions: {jugadorSeleccionado.champions}
               </li>
               <li
@@ -165,10 +160,9 @@ function Futbolistas() {
                     resultado.equipo === "verde"
                       ? "green"
                       : resultado.equipo === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Equipo actual: {jugadorSeleccionado.equipo}
               </li>
               <li
@@ -177,10 +171,9 @@ function Futbolistas() {
                     resultado.posicion === "verde"
                       ? "green"
                       : resultado.posicion === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Posición: {jugadorSeleccionado.posicion}
               </li>
               <li
@@ -189,10 +182,9 @@ function Futbolistas() {
                     resultado.pais === "verde"
                       ? "green"
                       : resultado.pais === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 País: {jugadorSeleccionado.pais}
               </li>
               <li
@@ -201,10 +193,9 @@ function Futbolistas() {
                     resultado.pie === "verde"
                       ? "green"
                       : resultado.pie === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Pie hábil: {jugadorSeleccionado.pie}
               </li>
             </ul>
@@ -222,8 +213,7 @@ function Futbolistas() {
               color: "white",
               border: "none",
               borderRadius: "5px",
-            }}
-          >
+            }}>
             Volver a intentar
           </button>
         )}

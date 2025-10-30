@@ -1,26 +1,26 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from 'react';
-import '../styles/login.css';
+import { useState } from "react";
+import "../styles/login.css";
 
 function Login() {
   const navigate = useNavigate();
-  const [identifier, setIdentifier] = useState('');
-  const [password, setPassword] = useState('');
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
 
-  const login = async (identifier, password) => {  
+  const login = async (identifier, password) => {
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {  
-        method: 'POST',  
-        headers: { 'Content-Type': 'application/json' },  
-        body: JSON.stringify({ identifier, password })  
-      });  
-      const data = await response.json();  
-      if (data.token) {  
-        localStorage.setItem('token', data.token);  
+      const response = await fetch("http://localhost:8080/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier, password }),
+      });
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem("token", data.token);
       }
-      return data;  
+      return data;
     } catch (err) {
-      return { error: 'Error de conexión' };
+      return { error: "Error de conexión" };
     }
   };
 
@@ -29,10 +29,14 @@ function Login() {
     const data = await login(identifier, password);
     if (data && data.token) {
       // Inicio de sesión correcto: redirigir a InicioPage
-      navigate('/InicioPage');
+      navigate("/InicioPage");
     } else {
       // Mostrar alerta con el mensaje devuelto por el backend
-      const msg = data?.message || data?.error || JSON.stringify(data) || 'Credenciales incorrectas';
+      const msg =
+        data?.message ||
+        data?.error ||
+        JSON.stringify(data) ||
+        "Credenciales incorrectas";
       alert(msg);
     }
   };
@@ -41,8 +45,14 @@ function Login() {
     <div className="login-page">
       <header className="panel-login">
         <Link to="/InicioPage">
-          <img className="MiniLogo" src="/images/MiniLogo.png" alt="Mini logo Guess It!!" width="500px" height="auto"/>
-        </Link> 
+          <img
+            className="MiniLogo"
+            src="/images/MiniLogo.png"
+            alt="Mini logo Guess It!!"
+            width="500px"
+            height="auto"
+          />
+        </Link>
       </header>
       <div className="login-card">
         <h2 className="login-title">Iniciar Sesión</h2>
@@ -62,16 +72,19 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="btn-login">Ingresar</button>
+          <button type="submit" className="btn-login">
+            Ingresar
+          </button>
         </form>
 
         <p className="login-footer">
           ¿No tienes cuenta?{" "}
-          <Link to="/signup" className="login-link">Regístrate</Link>
+          <Link to="/signup" className="login-link">
+            Regístrate
+          </Link>
         </p>
       </div>
     </div>
-
   );
 }
 

@@ -32,9 +32,7 @@ function Empresas() {
     if (valor.length > 0) {
       const filtrados = empresasData
         .map((e) => e.nombre)
-        .filter((nombre) =>
-          nombre.toLowerCase().includes(valor.toLowerCase())
-        );
+        .filter((nombre) => nombre.toLowerCase().includes(valor.toLowerCase()));
       setSugerencias(filtrados);
     } else {
       setSugerencias([]);
@@ -52,7 +50,7 @@ function Empresas() {
     if (!empresaSeleccionada || juegoTerminado) return;
 
     const intento = empresasData.find(
-      (e) => e.nombre.toLowerCase() === inputUsuario.toLowerCase()
+      (e) => e.nombre.toLowerCase() === inputUsuario.toLowerCase(),
     );
 
     if (!intento) {
@@ -62,14 +60,15 @@ function Empresas() {
     }
 
     const nuevoResultado = {
-      pais:
-        intento.pais === empresaSeleccionada.pais ? "verde" : "rojo",
+      pais: intento.pais === empresaSeleccionada.pais ? "verde" : "rojo",
       industria:
         intento.industria === empresaSeleccionada.industria ? "verde" : "rojo",
       fundacion:
         intento.fundacion === empresaSeleccionada.fundacion ? "verde" : "rojo",
       datoCurioso:
-        intento.datoCurioso === empresaSeleccionada.datoCurioso ? "verde" : "rojo",
+        intento.datoCurioso === empresaSeleccionada.datoCurioso
+          ? "verde"
+          : "rojo",
     };
 
     if (intento.nombre === empresaSeleccionada.nombre) {
@@ -122,8 +121,7 @@ function Empresas() {
                 maxHeight: "150px",
                 overflowY: "auto",
                 zIndex: 10,
-              }}
-            >
+              }}>
               {sugerencias.map((nombre, i) => (
                 <li
                   key={i}
@@ -132,8 +130,7 @@ function Empresas() {
                     padding: "5px",
                     cursor: "pointer",
                     borderBottom: "1px solid #eee",
-                  }}
-                >
+                  }}>
                   {nombre}
                 </li>
               ))}
@@ -153,10 +150,9 @@ function Empresas() {
                     resultado.pais === "verde"
                       ? "green"
                       : resultado.pais === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 País de origen: {empresaSeleccionada.pais}
               </li>
               <li
@@ -165,10 +161,9 @@ function Empresas() {
                     resultado.industria === "verde"
                       ? "green"
                       : resultado.industria === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Industria: {empresaSeleccionada.industria}
               </li>
               <li
@@ -177,10 +172,9 @@ function Empresas() {
                     resultado.fundacion === "verde"
                       ? "green"
                       : resultado.fundacion === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Año de fundación: {empresaSeleccionada.fundacion}
               </li>
               <li
@@ -189,10 +183,9 @@ function Empresas() {
                     resultado.datoCurioso === "verde"
                       ? "green"
                       : resultado.datoCurioso === "rojo"
-                      ? "red"
-                      : "black",
-                }}
-              >
+                        ? "red"
+                        : "black",
+                }}>
                 Dato curioso: {empresaSeleccionada.datoCurioso}
               </li>
             </ul>
@@ -210,8 +203,7 @@ function Empresas() {
               color: "white",
               border: "none",
               borderRadius: "5px",
-            }}
-          >
+            }}>
             Volver a intentar
           </button>
         )}

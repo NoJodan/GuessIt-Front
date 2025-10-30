@@ -5,7 +5,6 @@ function InicioPage() {
   return (
     <div className="ContainerInicio">
       <Sonidos /> {/* Activa el sistema de sonidos */}
-
       <header className="panel">
         <Link to="/Login">
           <h2 id="ingresar">Ingresar</h2>
@@ -14,17 +13,15 @@ function InicioPage() {
           <h2 id="registrarse">Registrarse</h2>
         </Link>
       </header>
-
       <header className="logo">
         <img
           id="LogoPagina"
-          src="/images/LogoPaginaBlanco.png"
+          src="/images/mini_logo_nuevo.png"
           alt="Logo de la pagina web"
           width="500px"
           height="auto"
         />
       </header>
-
       <section>
         <div className="menu">
           <Link to="/Jugar">
@@ -32,7 +29,6 @@ function InicioPage() {
           </Link>
         </div>
       </section>
-
       <footer></footer>
     </div>
   );

@@ -27,7 +27,7 @@
   width: 100%;
   max-width: 400px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.8s ease;
 
   position: absolute;
@@ -38,7 +38,7 @@
 
 /* Estilos de texto y formulario */
 .signup-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 32px;
   color: #01244bfd;
   margin-bottom: 25px;
@@ -98,6 +98,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

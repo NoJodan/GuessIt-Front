@@ -1,11 +1,11 @@
-.panel-login{
-  position: absolute;   /* Para poder moverla libremente */
-  top: 20px;            /* Distancia desde arriba */
-  left: 5px;           /* Distancia desde la izquierda */
+.panel-login {
+  position: absolute; /* Para poder moverla libremente */
+  top: 20px; /* Distancia desde arriba */
+  left: 5px; /* Distancia desde la izquierda */
 }
 
-.MiniLogo{
-  width: 300px;         /* Ajusta el tamaño según necesites */
+.MiniLogo {
+  width: 300px; /* Ajusta el tamaño según necesites */
   height: auto;
 }
 
@@ -26,17 +26,17 @@
   width: 100%;
   max-width: 400px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.8s ease;
 
   position: absolute;
-  top: 50%;   /* centro vertical */
-  left: 50%;  /* centro horizontal */
+  top: 50%; /* centro vertical */
+  left: 50%; /* centro horizontal */
   transform: translate(-50%, -50%); /* ajusta al verdadero centro */
 }
 
 .login-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 32px;
   color: #01244bfd;
   margin-bottom: 25px;
@@ -96,6 +96,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

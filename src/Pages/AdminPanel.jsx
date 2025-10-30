@@ -33,9 +33,13 @@ const Admin = () => {
     const canonical = loaded.map((g) => {
       if (typeof g === "string") return { grupo: g, items: [] };
       if (g.grupo && Array.isArray(g.items)) return g;
-      if (g.nombre && Array.isArray(g.items)) return { grupo: g.nombre, items: g.items };
+      if (g.nombre && Array.isArray(g.items))
+        return { grupo: g.nombre, items: g.items };
       // otros formatos: convertir keys arbitrarias
-      return { grupo: g.grupo || g.nombre || "Sin nombre", items: g.items || [] };
+      return {
+        grupo: g.grupo || g.nombre || "Sin nombre",
+        items: g.items || [],
+      };
     });
 
     setGroups(canonical);
@@ -61,7 +65,9 @@ const Admin = () => {
   };
 
   const handleDeleteGroup = (index) => {
-    const ok = window.confirm(`Eliminar el grupo "${groups[index].grupo}"? Esta acción no es reversible.`);
+    const ok = window.confirm(
+      `Eliminar el grupo "${groups[index].grupo}"? Esta acción no es reversible.`,
+    );
     if (!ok) return;
     setGroups((prev) => prev.filter((_, i) => i !== index));
     setExpandedGroup(null);
@@ -72,7 +78,10 @@ const Admin = () => {
     if (!nombre) return;
     setGroups((prev) => {
       const copy = [...prev];
-      copy[index] = { ...copy[index], items: [...(copy[index].items || []), nombre.trim()] };
+      copy[index] = {
+        ...copy[index],
+        items: [...(copy[index].items || []), nombre.trim()],
+      };
       return copy;
     });
     setExpandedGroup(groups[index].grupo);
@@ -101,14 +110,12 @@ const Admin = () => {
         <div className="gi-tabs">
           <div
             className={`gi-tab ${activeTab === "admin" ? "gi-tab--active" : ""}`}
-            onClick={() => setActiveTab("admin")}
-          >
+            onClick={() => setActiveTab("admin")}>
             Admin
           </div>
           <div
             className={`gi-tab ${activeTab === "user" ? "gi-tab--active" : ""}`}
-            onClick={() => setActiveTab("user")}
-          >
+            onClick={() => setActiveTab("user")}>
             User
           </div>
         </div>
@@ -120,7 +127,9 @@ const Admin = () => {
               <header className="gi-panel-header">
                 <h1 className="gi-title">Panel de Administración</h1>
                 <div className="gi-global-actions">
-                  <button className="gi-btn gi-btn--primary" onClick={handleCreateGroup}>
+                  <button
+                    className="gi-btn gi-btn--primary"
+                    onClick={handleCreateGroup}>
                     ➕ Nuevo Grupo
                   </button>
                 </div>
@@ -128,24 +137,39 @@ const Admin = () => {
 
               <div className="gi-groups-grid">
                 {groups.length === 0 ? (
-                  <div className="gi-empty">No hay grupos. Crea uno con "Nuevo Grupo".</div>
+                  <div className="gi-empty">
+                    No hay grupos. Crea uno con "Nuevo Grupo".
+                  </div>
                 ) : (
                   groups.map((g, gi) => (
-                    <article key={gi} className={`gi-group ${expandedGroup === g.grupo ? "gi-group--expanded" : ""}`}>
+                    <article
+                      key={gi}
+                      className={`gi-group ${expandedGroup === g.grupo ? "gi-group--expanded" : ""}`}>
                       <div className="gi-group-head">
-                        <div className="gi-group-title" onClick={() => toggleExpand(g.grupo)}>
+                        <div
+                          className="gi-group-title"
+                          onClick={() => toggleExpand(g.grupo)}>
                           <span className="gi-folder-emoji">📁</span>
                           <span>{g.grupo}</span>
                         </div>
 
                         <div className="gi-group-controls">
-                          <button className="gi-smallbtn" title="Agregar item" onClick={() => handleAddItem(gi)}>
+                          <button
+                            className="gi-smallbtn"
+                            title="Agregar item"
+                            onClick={() => handleAddItem(gi)}>
                             ➕
                           </button>
-                          <button className="gi-smallbtn" title="Renombrar grupo" onClick={() => handleRenameGroup(gi)}>
+                          <button
+                            className="gi-smallbtn"
+                            title="Renombrar grupo"
+                            onClick={() => handleRenameGroup(gi)}>
                             ✏️
                           </button>
-                          <button className="gi-smallbtn gi-smallbtn--danger" title="Eliminar grupo" onClick={() => handleDeleteGroup(gi)}>
+                          <button
+                            className="gi-smallbtn gi-smallbtn--danger"
+                            title="Eliminar grupo"
+                            onClick={() => handleDeleteGroup(gi)}>
                             🗑️
                           </button>
                         </div>
@@ -160,8 +184,15 @@ const Admin = () => {
                                 <li key={ii} className="gi-item">
                                   <span>{it}</span>
                                   <div className="gi-item-controls">
-                                    <button className="gi-smallbtn" title="Editar (no implementado)">✏️</button>
-                                    <button className="gi-smallbtn gi-smallbtn--danger" onClick={() => handleDeleteItem(gi, ii)} title="Eliminar">
+                                    <button
+                                      className="gi-smallbtn"
+                                      title="Editar (no implementado)">
+                                      ✏️
+                                    </button>
+                                    <button
+                                      className="gi-smallbtn gi-smallbtn--danger"
+                                      onClick={() => handleDeleteItem(gi, ii)}
+                                      title="Eliminar">
                                       🗑️
                                     </button>
                                   </div>
@@ -169,7 +200,9 @@ const Admin = () => {
                               ))}
                             </ul>
                           ) : (
-                            <div className="gi-empty">No hay elementos en este grupo.</div>
+                            <div className="gi-empty">
+                              No hay elementos en este grupo.
+                            </div>
                           )}
                         </div>
                       )}

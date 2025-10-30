@@ -5,7 +5,7 @@ import "../styles/editor.css";
 
 function Editor() {
   const { modoId } = useParams();
-  const modo = juegos.find(m => m.id === String(modoId));
+  const modo = juegos.find((m) => m.id === String(modoId));
 
   const [objetos, setObjetos] = useState([]);
   const [nuevo, setNuevo] = useState({});
@@ -20,33 +20,35 @@ function Editor() {
 
   // Genera automáticamente los atributos
   const atributos = Object.keys(modo)
-    .filter(key => !["id", "ruta", "objetos"].includes(key))
-    .map(key => ({
+    .filter((key) => !["id", "ruta", "objetos"].includes(key))
+    .map((key) => ({
       key,
       label: key.charAt(0).toUpperCase() + key.slice(1),
-      tipo: "text"
+      tipo: "text",
     }));
 
-  const handleChange = (e, key) => setNuevo({ ...nuevo, [key]: e.target.value });
+  const handleChange = (e, key) =>
+    setNuevo({ ...nuevo, [key]: e.target.value });
   const handleAdd = () => {
     if (Object.keys(nuevo).length === 0) return;
     setObjetos([...objetos, { id: Date.now().toString(), ...nuevo }]);
     setNuevo({});
   };
-  const handleDelete = id => setObjetos(objetos.filter(obj => obj.id !== id));
+  const handleDelete = (id) =>
+    setObjetos(objetos.filter((obj) => obj.id !== id));
 
   return (
     <div className="gi-editor">
       <h2 className="gi-editor-title">Editor de {modo.nombre}</h2>
 
       <div className="gi-form">
-        {atributos.map(attr => (
+        {atributos.map((attr) => (
           <div key={attr.key} className="gi-form-field">
             <label>{attr.label}</label>
             <input
               type={attr.tipo}
               value={nuevo[attr.key] || ""}
-              onChange={e => handleChange(e, attr.key)}
+              onChange={(e) => handleChange(e, attr.key)}
             />
           </div>
         ))}
@@ -56,16 +58,18 @@ function Editor() {
       </div>
 
       <div className="gi-list">
-        {objetos.map(obj => (
+        {objetos.map((obj) => (
           <div key={obj.id} className="gi-list-item">
             <div>
-              {atributos.map(attr => (
+              {atributos.map((attr) => (
                 <p key={attr.key}>
                   <strong>{attr.label}:</strong> {obj[attr.key]}
                 </p>
               ))}
             </div>
-            <button className="gi-btn-delete" onClick={() => handleDelete(obj.id)}>
+            <button
+              className="gi-btn-delete"
+              onClick={() => handleDelete(obj.id)}>
               Eliminar
             </button>
           </div>

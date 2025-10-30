@@ -1,95 +1,143 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .ContainerInicio {
-    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-image: url('/public/images/FondoInicioPage.png');
-    background-size: cover;       /* Ajusta la imagen al tamaño de pantalla */
-    background-position: center;  /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que se repita */
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("/public/images/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centra verticalmente */
+  overflow-x: hidden;
+  position: relative;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-}
-.panel{
-    width: 100%;
-    height: 45px;
-    background-color: #38006d;
-    display: flex;
-    justify-content:right;
-    align-items: center;
-    
-}
-#ingresar{
-    display: flex;                /* 🔹 Permite centrar el texto internamente */
-    justify-content: center;      /* 🔹 Centra horizontalmente */
-    align-items: center;          /* 🔹 Centra verticalmente */
-    height: 15px;
-    background-color: #f86300d4;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-right: 10px;   
-}
-#registrarse{
-    display: flex;                /* 🔹 Permite centrar el texto internamente */
-    justify-content: center;      /* 🔹 Centra horizontalmente */
-    align-items: center;          /* 🔹 Centra verticalmente */
-    height: 15px;
-    background-color: #f86300d4;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-right: 10px;
+/* === HEADER SUPERIOR TRANSPARENTE === */
+.panel {
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  padding-right: 30px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(4px); /* Difumina fondo */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.logo{
-    text-align: center;
-    line-height: 100px;
-    margin-top: 75px;
+/* === TEXTO DEL PANEL === */
+.panel h2 {
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
 }
 
-
-.menu{
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 25px;
-    color: #000000; 
-    letter-spacing: 2px;
+.panel h2:hover {
+  color: #d4af37;
+  transform: scale(1.1);
 }
+
+/* === LOGO Y MENÚ CENTRADOS === */
+.logo {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.logo img {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+}
+
+.menu {
+  margin-top: 40px;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+/* === BOTÓN JUGAR === */
 #btn-jugar {
-    margin-top: -20px;
-    display: inline-block;
-    background-color: #2198cf; /* Color base */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 37px;
-    
+  display: inline-block;
+  background-color: #C18E25;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 37px;
 }
-/*Animaciones al pasar cursor */
-#ingresar:hover{
-    transform: scale(1.1);
-}
-#registrarse:hover{
-    transform: scale(1.1);
-}
-#btn-categoria:hover{
-    transform: scale(1.1);
-}
+
 #btn-jugar:hover {
-    transform: scale(1.1);
-    border: 2px solid #ffffff; /* Cambia a blanco al pasar el cursor */
+  transform: scale(1.1);
+  border: 2px solid #ffffff;
 }
+
+/* === BOTONES SUPERIORES === */
+#ingresar,
+#registrarse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  background-color: #C18E25;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+#ingresar:hover,
+#registrarse:hover {
+  transform: scale(1.1);
+}
+
+/* === ENLACES === */
 a {
-    text-decoration: none; /*  Quita la línea azul debajo del texto */
-    color: inherit;        /*  Mantiene el color del texto igual al botón */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .logo img {
+    width: 70%;
+  }
+
+  .menu h2 {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .panel {
+    height: 50px;
+    padding-right: 15px;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .panel h2 {
+    font-size: 0.95rem;
+  }
 }
