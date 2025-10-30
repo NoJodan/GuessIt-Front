@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+/* ===== BASE ===== */
+.ContainerInicio {
+  margin: 0;
+  padding: 0;
+  background-image: url("/public/images/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #e5e0c0;
+  font-family: 'IM Fell English SC', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== PANEL SUPERIOR ===== */
+.panel-inicio {
+  position: absolute;
+  top: 2%;
+  right: 3%;
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  z-index: 5;
+}
+
+.btn-panel {
+  color: #bfa76f;
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: transform 0.18s ease, color 0.18s ease, filter 0.18s ease;
+  user-select: none;
+}
+
+.btn-panel:hover {
+  color: #fff2b0;
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* ===== LOGO ===== */
+.logo-inicio img {
+  width: clamp(220px, 35vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 0 30px #e5d9b6);
+  animation: subirBajar 3.6s ease-in-out infinite;
+}
+
+/* ===== MENÚ / BOTÓN JUGAR (SOLO TEXTO, SIN FONDO) ===== */
+.menu-inicio {
+  margin-top: 2.5rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn-jugar {
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  /* efecto brillo sobre texto (sin fondo) */
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    white 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: brilloRecorrido 3s linear infinite;
+
+  transition: transform 0.18s ease, text-shadow 0.18s ease;
+  user-select: none;
+}
+
+/* hover mantiene animación y añade brillo */
+#btn-jugar:hover {
+  transform: translateY(-6px) scale(1.03);
+  text-shadow: 0 0 18px rgba(255, 242, 176, 0.9);
+}
+
+/* pressed: efecto de "presionar" al hacer click */
+.pressed {
+  transform: scale(0.92) !important;
+  opacity: 0.85;
+  filter: brightness(0.9);
+}
+
+/* ===== FOOTER ===== */
+.footer-inicio {
+  position: absolute;
+  bottom: 2%;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgba(229,224,192,0.9);
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
+  z-index: 3;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes subirBajar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes brilloRecorrido {
+  100% { background-position: -100% 0; }
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.fade-in {
+  animation: fadeInPage 1.0s ease forwards;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .panel-inicio { top: 3%; right: 4%; }
+  .logo-inicio img { width: clamp(180px, 40vw, 300px); }
+  #btn-jugar { font-size: clamp(1.6rem, 8vw, 2.8rem); }
+  .btn-panel { font-size: 1rem; }
+}
+
+@media (max-width: 420px) {
+  .panel-inicio { top: 4%; right: 3%; gap: 0.8rem; }
+  #btn-jugar { font-size: clamp(1.4rem, 9.5vw, 2.2rem); }
+  .logo-inicio img { width: clamp(140px, 45vw, 220px); }
+}
