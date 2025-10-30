@@ -9,13 +9,14 @@ function Editor() {
 
   const [objetos, setObjetos] = useState([]);
   const [nuevo, setNuevo] = useState({});
+  const [muted, setMuted] = useState(false);
 
-  // 🎵 Referencias de sonido
+  // 🎧 Refs de sonido
   const musicaRef = useRef(null);
-  const sonidoAddRef = useRef(null);
-  const sonidoDelRef = useRef(null);
+  const addRef = useRef(null);
+  const delRef = useRef(null);
 
-  // 🎶 Reproduce música de fondo una vez cargado el componente
+  // ▶️ Música de fondo automática
   useEffect(() => {
     const musica = musicaRef.current;
     musica.volume = 0.3;
@@ -23,15 +24,13 @@ function Editor() {
     musica.play().catch(() => {});
   }, []);
 
-  // Carga los objetos iniciales del modo
   useEffect(() => {
     if (modo) setObjetos(modo.objetos || []);
   }, [modo]);
 
   if (!modo)
-    return <p className="gi-error">No se encontró el modo seleccionado. ID: {modoId}</p>;
+    return <p className="gi-error">⚠️ No se encontró el modo seleccionado.</p>;
 
-  // Genera automáticamente los atributos
   const atributos = Object.keys(modo)
     .filter((key) => !["id", "ruta", "objetos"].includes(key))
     .map((key) => ({
@@ -40,73 +39,84 @@ function Editor() {
       tipo: "text",
     }));
 
-  // 📥 Controla los cambios en los campos
   const handleChange = (e, key) => setNuevo({ ...nuevo, [key]: e.target.value });
 
-  // ➕ Agrega nuevo objeto con sonido y animación
   const handleAdd = () => {
     if (Object.keys(nuevo).length === 0) return;
-    sonidoAddRef.current.currentTime = 0;
-    sonidoAddRef.current.play();
+    if (!muted) {
+      addRef.current.currentTime = 0;
+      addRef.current.play();
+    }
     setObjetos([...objetos, { id: Date.now().toString(), ...nuevo }]);
     setNuevo({});
   };
 
-  // ❌ Elimina objeto con efecto sonoro
   const handleDelete = (id) => {
-    sonidoDelRef.current.currentTime = 0;
-    sonidoDelRef.current.play();
+    if (!muted) {
+      delRef.current.currentTime = 0;
+      delRef.current.play();
+    }
     setObjetos(objetos.filter((obj) => obj.id !== id));
   };
 
+  const toggleMute = () => {
+    const musica = musicaRef.current;
+    setMuted(!muted);
+    musica.muted = !musica.muted;
+  };
+
   return (
-    <div className="gi-editor">
-      {/* 🎵 Elementos de audio */}
-      <audio ref={musicaRef} src="/sounds/editor_fondo.mp3" preload="auto" />
-      <audio ref={sonidoAddRef} src="/sounds/add_click.mp3" preload="auto" />
-      <audio ref={sonidoDelRef} src="/sounds/delete_click.mp3" preload="auto" />
+    <div className="editor-container">
+      {/* 🎵 Sonidos */}
+      <audio ref={musicaRef} src="/sounds/fondo_menu.mp3" preload="auto" />
+      <audio ref={addRef} src="/sounds/click 2.mp3" preload="auto" />
+      <audio ref={delRef} src="/sounds/click al jugar.mp3" preload="auto" />
 
-      <h2 className="gi-editor-title">🧩 Editor de {modo.nombre}</h2>
+      {/* 🔊 Control flotante de sonido */}
+      <div className="sound-toggle" onClick={toggleMute}>
+        {muted ? "🔇" : "🎶"}
+      </div>
 
-      {/* Formulario dinámico */}
-      <div className="gi-form fade-in">
+      <div className="editor-header fade-down">
+        <h1>🧠 Editor de {modo.nombre}</h1>
+        <p>Personaliza los elementos y experimenta tu modo de juego.</p>
+      </div>
+
+      <div className="editor-panel fade-up">
         {atributos.map((attr) => (
-          <div key={attr.key} className="gi-form-field">
+          <div key={attr.key} className="editor-field">
             <label>{attr.label}</label>
             <input
               type={attr.tipo}
               value={nuevo[attr.key] || ""}
               onChange={(e) => handleChange(e, attr.key)}
+              placeholder={`Ingrese ${attr.label.toLowerCase()}`}
             />
           </div>
         ))}
-        <button className="gi-btn gi-btn-add" onClick={handleAdd}>
-          Agregar {modo.nombre}
+        <button className="btn add" onClick={handleAdd}>
+          + Agregar {modo.nombre}
         </button>
       </div>
 
-      {/* Lista animada */}
-      <div className="gi-list">
+      <div className="editor-list">
         {objetos.length > 0 ? (
           objetos.map((obj) => (
-            <div key={obj.id} className="gi-list-item fade-up">
-              <div>
+            <div key={obj.id} className="editor-card fade-in">
+              <div className="card-content">
                 {atributos.map((attr) => (
                   <p key={attr.key}>
                     <strong>{attr.label}:</strong> {obj[attr.key]}
                   </p>
                 ))}
               </div>
-              <button
-                className="gi-btn gi-btn-delete"
-                onClick={() => handleDelete(obj.id)}
-              >
-                Eliminar
+              <button className="btn delete" onClick={() => handleDelete(obj.id)}>
+                ✖
               </button>
             </div>
           ))
         ) : (
-          <p className="fade-in">No hay objetos agregados aún.</p>
+          <p className="no-items fade-in">No hay objetos aún.</p>
         )}
       </div>
     </div>
