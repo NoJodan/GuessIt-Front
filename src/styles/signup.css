@@ -3,26 +3,31 @@
 * {
   font-family: 'MedievalSharp', cursive;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .signup-page {
   background: url('/public/images/fondo2.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .panel-login {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  margin-bottom: 40px;
+  z-index: 2;
 }
 
 .MiniLogo {
-  width: 200px;
+  width: 220px;
+  max-width: 80%;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .signup-card {
@@ -33,17 +38,20 @@
   color: #fff;
   backdrop-filter: blur(6px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 400px;
+  animation: fadeInUp 1s ease forwards;
+  margin-top: 20px;
 }
 
 .signup-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 25px;
   color: #fff;
   letter-spacing: 2px;
   animation: fadeInUp 1s ease forwards, floatingGlow 4s ease-in-out infinite;
-  opacity: 0; /* inicia invisible para el fadeIn */
+  opacity: 0;
 }
-
 
 .signup-form input {
   width: 100%;
@@ -90,6 +98,8 @@
 .signup-link:hover {
   text-decoration: underline;
 }
+
+/* Animaciones */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -102,6 +112,20 @@
     filter: blur(0);
   }
 }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 @keyframes floatingGlow {
   0% {
     transform: translateY(0);
@@ -122,5 +146,49 @@
   100% {
     transform: translateY(0);
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .signup-page {
+    padding-top: 60px;
+  }
+
+  .panel-login {
+    margin-bottom: 30px;
+  }
+
+  .MiniLogo {
+    width: 180px;
+  }
+
+  .signup-card {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  .signup-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-page {
+    padding-top: 80px;
+  }
+
+  .MiniLogo {
+    width: 150px;
+  }
+
+  .signup-card {
+    margin-top: 30px;
+    padding: 25px 18px;
+    max-width: 95%;
+  }
+
+  .signup-title {
+    font-size: 1.6rem;
   }
 }
