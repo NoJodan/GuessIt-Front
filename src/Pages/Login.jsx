@@ -28,10 +28,8 @@ function Login() {
     e.preventDefault();
     const data = await login(identifier, password);
     if (data && data.token) {
-      // Inicio de sesión correcto: redirigir a InicioPage
       navigate("/InicioPage");
     } else {
-      // Mostrar alerta con el mensaje devuelto por el backend
       const msg =
         data?.message ||
         data?.error ||
@@ -43,17 +41,18 @@ function Login() {
 
   return (
     <div className="login-page">
+      {/* Header con el logo */}
       <header className="panel-login">
         <Link to="/InicioPage">
           <img
             className="MiniLogo"
-            src="/images/MiniLogo.png"
+            src="/images/mini_logo_nuevo.png"
             alt="Mini logo Guess It!!"
-            width="500px"
-            height="auto"
           />
         </Link>
       </header>
+
+      {/* Tarjeta de inicio de sesión */}
       <div className="login-card">
         <h2 className="login-title">Iniciar Sesión</h2>
 
@@ -87,5 +86,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
