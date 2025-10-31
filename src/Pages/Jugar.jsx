@@ -16,7 +16,7 @@ function Jugar() {
   const getAllThemes = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://127.0.0.1:8080/api/game/themes", {
+      const response = await fetch("https://127.0.0.1:8080/api/game/themes", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
