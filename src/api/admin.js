@@ -1,4 +1,4 @@
-const BASE_URL = "https://zooming-integrity.railway.internal";
+const BASE_URL = "https://zooming-integrity-production-6c7d.up.railway.app";
 
 function getAuthHeaders() {
 	const token = localStorage.getItem("token");

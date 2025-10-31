@@ -9,7 +9,7 @@ function Login() {
 
   const login = async (identifier, password) => {
     try {
-      const response = await fetch("https://zooming-integrity.railway.internal/auth/login", {
+      const response = await fetch("https://zooming-integrity-production-6c7d.up.railway.app/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ identifier, password }),
