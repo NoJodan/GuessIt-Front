@@ -37,7 +37,7 @@ function Theme() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:8080/api/admin/game/themes/${themeId}/items`,
+        `https://zooming-integrity-production-6c7d.up.railway.app/api/admin/game/themes/${themeId}/items`,
         {
           method: "GET",
           headers: {
@@ -66,7 +66,7 @@ function Theme() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:8080/api/admin/game/themes/${themeId}/categories`,
+        `https://zooming-integrity-production-6c7d.up.railway.app/api/admin/game/themes/${themeId}/categories`,
         {
           method: "GET",
           headers: {
@@ -104,7 +104,7 @@ function Theme() {
   const makeGuess = async (themeId, itemName, jwtToken) => {
     const body = { themeId, itemName };
 
-    const resp = await fetch("http://localhost:8080/api/game/guess", {
+    const resp = await fetch("https://zooming-integrity-production-6c7d.up.railway.app/api/game/guess", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
