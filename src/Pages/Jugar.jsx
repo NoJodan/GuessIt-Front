@@ -16,7 +16,7 @@ function Jugar() {
   const getAllThemes = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://zooming-integrity-production-6c7d.up.railway.app/api/game/themes", {
+      const response = await fetch("https://zooming-integrity.railway.internal/api/game/themes", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
