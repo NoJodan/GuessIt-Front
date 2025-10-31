@@ -1,109 +1,126 @@
-/* Logo arriba a la izquierda */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+* {
+  font-family: 'MedievalSharp', cursive;
+  box-sizing: border-box;
+}
+
+.signup-page {
+  background: url('/public/images/fondo2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .panel-login {
   position: absolute;
   top: 20px;
-  left: 5px;
+  left: 20px;
 }
+
 .MiniLogo {
-  width: 300px;
-  height: auto;
-}
-/* Fondo con imagen y centrado del formulario */
-.signup-page {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background: url("/public/images/fondologin.jpg") no-repeat center center fixed;
-  background-size: cover;
-  position: relative; /* para que el logo no se mueva */
+  width: 200px;
 }
 
-/* Card centrada */
 .signup-card {
-  background: #f4f4f4;
-  padding: 40px;
+  background: rgba(0, 0, 0, 0.75);
   border-radius: 15px;
-  width: 100%;
-  max-width: 400px;
+  padding: 40px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.8s ease;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Estilos de texto y formulario */
 .signup-title {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 32px;
-  color: #01244bfd;
+  font-size: 2.5rem;
   margin-bottom: 25px;
+  color: #fff;
+  letter-spacing: 2px;
+  animation: fadeInUp 1s ease forwards, floatingGlow 4s ease-in-out infinite;
+  opacity: 0; /* inicia invisible para el fadeIn */
 }
 
-.signup-form {
-  display: flex;
-  flex-direction: column;
-}
 
 .signup-form input {
-  margin: 10px 0;
+  width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  border: none;
   border-radius: 8px;
-  font-size: 16px;
-  transition: all 0.3s ease;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-.signup-form input:focus {
-  border-color: #ff5733;
-  outline: none;
-  box-shadow: 0 0 8px #ff5733;
+.signup-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-signup {
-  margin-top: 15px;
-  background-color: #ff5733;
-  color: white;
-  font-size: 16px;
+  width: 100%;
   padding: 12px;
+  background-color: #ffcc00;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  color: #000;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .btn-signup:hover {
+  background-color: #ffd633;
   transform: scale(1.05);
-  background-color: #e64e2c;
 }
 
 .signup-footer {
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 20px;
 }
 
 .signup-link {
-  color: #033c79;
+  color: #c1992bcb;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 .signup-link:hover {
   text-decoration: underline;
 }
-
-@keyframes fadeIn {
-  from {
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(30px);
+    filter: blur(5px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@keyframes floatingGlow {
+  0% {
+    transform: translateY(0);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    transform: translateY(-6px);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    transform: translateY(0);
+    text-shadow: 0 0 16px rgba(193, 153, 43, 0.8);
+  }
+  75% {
+    transform: translateY(6px);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    transform: translateY(0);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   }
 }
